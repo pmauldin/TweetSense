@@ -1,4 +1,7 @@
 import tweepy
+import time
+import calendar
+import six
 from alchemyapi import AlchemyAPI
 
 class Twitter:
@@ -15,19 +18,29 @@ class Twitter:
 		auth.set_access_token(self._access_token, self._access_token_secret)
 
 		self._twitter_api = tweepy.API(auth)
-		self._alchemy_api = AlchemyAPI()
+		# self._alchemy_api = AlchemyAPI()
+
+
 
 	def getTweets(self, q, cnt):
 		data = self._twitter_api.search(q, count=cnt)
-		tweets = ''
+		tweets = []
+		epochToNow = int(time.time())
+		# print epochToNow
 		for i in data:
-			print i.text.encode('utf-8')
-			tweets += i.text
+			t = time.strptime(str(i.created_at), "%Y-%m-%d %H:%M:%S")
+			epochToTweet = calendar.timegm(t)
+			# print epochToTweet
+			daysPast = float(epochToTweet - epochToNow) / 86400
+			# print daysPast
+			tweets.append((i.text, daysPast))
+
+		print tweets
 		return tweets
 
-	def getScore(self, chars):
-		response = self._alchemy_api.sentiment('text', chars)
-		return response
+	# def getScore(self, chars):
+		# response = self._alchemy_api.sentiment('text', chars)
+		# return response
 
 	# # returns lists for words
 	# def getTweets(self, q, cnt=100):	
@@ -50,6 +63,6 @@ class Twitter:
 	# 		result.append(tweets)
 	# 	return result
 
-# t= Twitter()
+# t = Twitter()
 
-# print t.getTweets('apple'))
+# z = t.getTweets('apple', 25)

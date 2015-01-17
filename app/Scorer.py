@@ -1,3 +1,5 @@
+#coding: utf8
+
 '''.............................
    Creation 2015 by WafflesAtOne
    .............................'''
@@ -44,10 +46,10 @@ def positivity(tweet):
    return score
 
 
-test_tweets = ['rainbow',
-               'many rainbow',
-               'not rainbow',
-               'not many rainbow',
-               'few rainbow']
-for tweet in test_tweets:
-   print(tweet, ' \t', positivity(tweet))
+# test_tweets = ['rainbow',
+#                'many rainbow',
+#                'not rainbow',
+#                'not many rainbow',
+#                'few rainbow']
+# for tweet in test_tweets:
+#    print(tweet, ' \t', positivity(tweet))
