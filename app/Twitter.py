@@ -1,7 +1,7 @@
 #coding: utf8
 
 import tweepy
-import time
+import time, datetime
 import calendar
 import six
 from alchemyapi import AlchemyAPI
@@ -24,52 +24,18 @@ class Twitter:
 		auth.set_access_token(self._access_token, self._access_token_secret)
 
 		self._twitter_api = tweepy.API(auth)
-		# self._alchemy_api = AlchemyAPI()
+		self._alchemy_api = AlchemyAPI()
 
+	def getTweets(self, q):
+		now = datetime.datetime.now()
+		data_list = []
+		for days in range(0,7):
+			formatted_now = str(now.year) + '-' + str(now.month) + '-' + str(now.day - days + 1)
+			data = self._twitter_api.search(q, count=30, result_type='popular', until=formatted_now)
+			tweets = ''
+			for i in data:
+				tweets += i.text + ' '
+			res = self._alchemy_api.sentiment("text", tweets)
+			data_list.append((-days, float(res['docSentiment']['score'])))
+		return data_list
 
-	def getTweets(self, q, cnt):
-		data = self._twitter_api.search(q, count=cnt)
-		tweets = []
-		epochToNow = int(time.time())
-		# print epochToNow
-		for i in data:
-			t = time.strptime(str(i.created_at), "%Y-%m-%d %H:%M:%S")
-			epochToTweet = calendar.timegm(t)
-			# print epochToTweet
-			daysPast = float(epochToTweet - epochToNow) / 86400
-			# print daysPast
-			text = i.text
-			if text[:2] == 'u\'':
-				text = i.text.encode('utf-8')
-			tweets.append((i.text, daysPast))
-
-		return tweets
-
-	# def getScore(self, chars):
-		# response = self._alchemy_api.sentiment('text', chars)
-		# return response
-
-	# # returns lists for words
-	# def getTweets(self, q, cnt=100):	
-	# 	data = self._api.search(q, count=cnt)
-	# 	result = []
-	# 	for i in data:
-	# 		tweets = []
-	# 		stringSplit = i.text.replace('\n', ' ').split(' ')
-	# 		for j in stringSplit:
-
-	# 			if len(j) > 1:
-	# 				if j[0] == '@':
-	# 					pass
-	# 				elif j == 'RT':
-	# 					pass
-	# 				elif j[0:4] == 'http' or j[0:4] == 'HTTP':
-	# 					pass
-	# 				else:
-	# 					tweets.append(j)
-	# 		result.append(tweets)
-	# 	return result
-
-t = Twitter()
-
-print t.getTweets('apple', 25)
