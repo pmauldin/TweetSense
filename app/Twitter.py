@@ -1,3 +1,5 @@
+#coding: utf8
+
 import tweepy
 from alchemyapi import AlchemyAPI
 
@@ -10,6 +12,10 @@ class Twitter:
 	_twitter_api = None
 	_alchemy_api = None
 
+	dateFrom = ''
+	dateTo = ''
+	tweets = []
+
 	def __init__(self):
 		auth = tweepy.OAuthHandler(self._consumer_key, self._consumer_secret)
 		auth.set_access_token(self._access_token, self._access_token_secret)
@@ -17,41 +23,44 @@ class Twitter:
 		self._twitter_api = tweepy.API(auth)
 		self._alchemy_api = AlchemyAPI()
 
+	def getEachTweet(self):
+		return self.tweets
 
-	def getTweets(self, q, cnt=100):
-		data = self._twitter_api.search(q, count=cnt)
-		tweets = ''
+	def getTweets(self, q, cnt=1):
+		if self.dateFrom == '' or self.dateTo == '':
+			return ''
+
+		user_last_id = 0
+		data = self._twitter_api.search(q, count=cnt, until='2015-01-12', result_type='popular', lang='en')
+		tweets = ""
+		j = 0
 		for i in data:
-			print i.text.encode('utf-8')
 			print i.created_at
-			print ''
+			j += 1
 			tweets += i.text
-		return tweets
+			self.tweets.append(i.text)
+			if j == len(data):
+				user_last_id = i.id
+
+		# print tweets
+		return tweets, user_last_id
 
 	def getScore(self, chars):
 		response = self._alchemy_api.sentiment('text', chars)
 		return response['docSentiment']['score']
 
-	# # returns lists for words
-	# def getTweets(self, q, cnt=100):	
-	# 	data = self._api.search(q, count=cnt)
-	# 	result = []
-	# 	for i in data:
-	# 		tweets = []
-	# 		stringSplit = i.text.replace('\n', ' ').split(' ')
-	# 		for j in stringSplit:
+	def setDate(self, _from, _to):
+		self.dateFrom = _from
+		self.dateTo = _to
 
-	# 			if len(j) > 1:
-	# 				if j[0] == '@':
-	# 					pass
-	# 				elif j == 'RT':
-	# 					pass
-	# 				elif j[0:4] == 'http' or j[0:4] == 'HTTP':
-	# 					pass
-	# 				else:
-	# 					tweets.append(j)
-	# 		result.append(tweets)
-	# 	return result
+
+
+
 
 t = Twitter()
-print t.getTweets('apple', 2)
+t.setDate('d','e')
+a, b = t.getTweets('google', 100)
+print len(t.getEachTweet())
+print a.encode('utf-8')
+print b
+print t.getScore(a)

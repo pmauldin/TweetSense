@@ -3,32 +3,36 @@ from app import app
 from .forms import LoginForm
 from Twitter import Twitter
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 def index():
-    user = {'nickname': 'Peter'}
-    
-    return render_template('index.html',
-                           title='Home',
-                           user=user)
-
-def idk(s):
-	return len(s)
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
     form = LoginForm()
     if form.validate_on_submit():
-        flash('Length of %s: %d characters' %
-              (form.query.data, idk(form.query.data)))
+        # print "###################"
+        count = 65
         t = Twitter()
-        a = t.getTweets(form.query.data, 100)
-        print a[0]
-        # s = '\n'.join(a)
-        # print s
-        flash(a[0])
+        a = t.getTweets(form.query.data, count)
+        p = a.split("#?#?#?")
+        # print len(p)
+        if len(p) <= 1:
+          flash('No tweets about \'%s\' found\n' %
+              form.query.data)
+        else:
+          flash('Printing %d tweets about \'%s\':\n' %
+                (len(p) - 1, form.query.data))
+          for i in range(len(p)-1):
+            print "p[%d]: %s" % (i, p[i])
+            flash("#%d   -   %s\n"  % (i+1, p[i]))
+        # z = t.getScore(a)
+
+        # flash(a)
         
-        return redirect('/index')
-    return render_template('login.html',
-                           title='Sign In',
+        return redirect('/results')
+    return render_template('index.html',
+                           title='Home',
                            form=form)
+
+@app.route('/results')
+def results():
+  return render_template('results.html',
+                           title='Results')
