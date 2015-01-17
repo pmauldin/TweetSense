@@ -17,15 +17,12 @@ class Twitter:
 		self._twitter_api = tweepy.API(auth)
 		self._alchemy_api = AlchemyAPI()
 
-	def getTweets(self, q, cnt=100):
+	def getTweets(self, q, cnt):
 		data = self._twitter_api.search(q, count=cnt)
-		tweets = ""
+		tweets = ''
 		for i in data:
-			# print i.text.encode('utf-8')
-			# print ''
+			print i.text.encode('utf-8')
 			tweets += i.text
-			tweets += "#?#?#?"
-		# print tweets
 		return tweets
 
 	def getScore(self, chars):
@@ -55,4 +52,4 @@ class Twitter:
 
 # t= Twitter()
 
-# print t.getScore(t.getTweets('apple'))['docSentiment']['score']
+# print t.getTweets('apple'))
