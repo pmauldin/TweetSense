@@ -32,3 +32,4 @@ for x in range(0, 70):
    print(interpolate(datapoints, float(x)/10))
 while True:
    print(interpolate(datapoints, float(input())))
+
