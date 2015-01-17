@@ -31,6 +31,11 @@
     // Format= ["Company Name","Date",Sentiment Rating, #of Tweets];
     //Assuming that I am getting an array of company data with the index differing with different day Data, but the company name is the same every time
  </script>
+       <style type='text/css'>
+       div.chart{
+          width: 1000px; height: 500px;
+       }
+      </style>
 </head>
     <script type="text/javascript">
       google.setOnLoadCallback(drawChart);
@@ -84,6 +89,6 @@
       }
     </script>
 <body>
-    <div id="output_chart" style="width: 900px; height: 500px"></div>
+    <div id="output_chart" class="chart"></div>
 </body>
 </html>

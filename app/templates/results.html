@@ -13,6 +13,16 @@
             }]
           }"></script>
 
+{% block content %}
+	<div>WafflesAtOne: <a href="/index">Home</a>
+	<h1>Query Results:</h1>
+	<!-- <h3>Sentiment: {{ score }} </h3> -->
+    {% for d in data %}
+        <h3>{{ d }} </h3>
+    {% endfor %}
+
+{% endblock %}
+
      <script type="text/javascript">
     // $.get(URL,data,function(data,status,xhr),dataType)
     //$.get("http://feeling-tweety.herokuapp.com/",data,function(data,status,xhr),json)
@@ -76,3 +86,4 @@
     <div id="output_chart" style="width: 900px; height: 500px"></div>
 </body>
 </html>
+
