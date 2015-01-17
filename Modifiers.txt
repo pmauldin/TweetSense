@@ -83,7 +83,9 @@ virtually
 
 
 
-INTENSIFIERS
+INTENSIFIERS (from http://writingcenter.unc.edu/handouts/qualifiers/ and
+                  http://en.wiktionary.org/wiki/Category:English_intensifiers and
+                  http://en.wikipedia.org/wiki/Intensifier)
 many
 most
 numerous
@@ -96,3 +98,83 @@ commonly
 long time <----------- NOTE multiword!
 repeatedly
 Probably
+
+bloody
+fucking
+all-fired
+already
+bally
+blasted
+bleeding
+bleeping
+blimming
+bloody
+brimstone
+by God <----------- NOTE multiword!
+chuffing
+dafuq
+damn
+devil
+dickens
+down
+downright
+durn
+effing
+ever
+everliving
+everloving
+flipping
+freaking
+fricking
+frigging
+frightful
+fuck
+fuck-off
+fucking
+goldurn
+hell
+hella
+herself
+himself
+holy
+honkin'
+however
+in
+god's
+name
+in
+heaven's
+name
+itself
+like
+living
+mad
+motherfucking
+cont.
+myself
+myselves
+on earth <----------- NOTE multiword!
+ourselves
+plum
+precious
+rank
+really
+royal
+ruddy
+sam hill <----------- NOTE multiword!
+siree
+sirree
+so
+sofa king <----------- NOTE multiword!
+spanking
+stone
+such
+tarnation
+devil
+dickens
+fuck
+heck
+hell
+well
+wicked
+
