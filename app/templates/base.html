@@ -1,0 +1,23 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - WafflesAtOne</title>
+    {% else %}
+    <title>WafflesAtOne</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>WafflesAtOne: <a href="/index">Home</a><a href="/login"> Login</a></div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <h3>{{ message }} </h3>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </body>
+</html>
