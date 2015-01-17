@@ -1,3 +1,5 @@
+#coding: utf8
+
 import tweepy
 import time
 import calendar
@@ -13,13 +15,16 @@ class Twitter:
 	_twitter_api = None
 	_alchemy_api = None
 
+	dateFrom = ''
+	dateTo = ''
+	tweets = []
+
 	def __init__(self):
 		auth = tweepy.OAuthHandler(self._consumer_key, self._consumer_secret)
 		auth.set_access_token(self._access_token, self._access_token_secret)
 
 		self._twitter_api = tweepy.API(auth)
 		# self._alchemy_api = AlchemyAPI()
-
 
 
 	def getTweets(self, q, cnt):
