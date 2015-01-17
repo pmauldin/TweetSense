@@ -15,6 +15,7 @@ barely
 
 doesn’t
 isn’t
+ain't
 wasn’t
 shouldn’t
 wouldn’t
@@ -22,6 +23,76 @@ couldn’t
 won’t
 can’t
 don’t
+didn't
 
-WEAKENERS
+doesnt
+isnt
+aint
+wasnt
+shouldnt
+wouldnt
+couldnt
+wont
+cant
+dont
+didnt
+
+unlikely
+improbable
+doubtful
+infrequently
+rarely
+
+
+QUALIFIERS (i.e. weakeners; from http://writingcenter.unc.edu/handouts/qualifiers/)
+
+appears
+seems 
+suggests
+indicates
+may
+might
+could
+some
+maybe
+
+few
+not many <----------- NOTE multiword!
+small number <----------- NOTE multiword!
+minority
+usually
+sometimes
+sporadically
+seldom
+possibly
+
+basically 
+essentially
+generally
+kind of <----------- NOTE multiword!
+kinda
+mostly
+pretty
+rather
+slightly 
+somewhat
+sort of <----------- NOTE multiword!
+sorta
+various
+virtually
+
+
+
 INTENSIFIERS
+many
+most
+numerous
+countless
+majority
+
+often
+frequently
+commonly
+long time <----------- NOTE multiword!
+repeatedly
+Probably
