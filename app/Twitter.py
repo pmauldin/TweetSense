@@ -33,6 +33,9 @@ class Twitter:
 			# print epochToTweet
 			daysPast = float(epochToTweet - epochToNow) / 86400
 			# print daysPast
+			text = i.text
+			if text[:2] == 'u\'':
+				text = i.text.encode('utf-8')
 			tweets.append((i.text, daysPast))
 
 		print tweets
@@ -63,6 +66,6 @@ class Twitter:
 	# 		result.append(tweets)
 	# 	return result
 
-# t = Twitter()
+t = Twitter()
 
-# z = t.getTweets('apple', 25)
+print t.getTweets('apple', 25)

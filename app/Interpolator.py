@@ -70,8 +70,8 @@ times = [-2.0,
          29.0,
          29.5,
          29.75]
-for x in range(-50, 350):
-   print(extrapolate_frequency(times, float(x)/10, tau=0.25))
+# for x in range(-50, 350):
+   # print(extrapolate_frequency(times, float(x)/10, tau=0.25))
 
 
 '''

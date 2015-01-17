@@ -2,7 +2,8 @@ from flask import render_template, flash, redirect
 from app import app
 from .forms import LoginForm
 from Twitter import Twitter
-from Analysis import analyze
+import numpy
+# from Analysis import analyze
 
 # total = 0
 @app.route('/', methods=['GET', 'POST'])
@@ -16,8 +17,8 @@ def index():
         t = Twitter()
         a = t.getTweets(form.query.data, count)
 
-        graph = analyze(a, [-1.0, 0.0, 1.0])
-        print graph
+        # graph = analyze(a, [-1.0, 0.0, 1.0])
+        # print graph
         # print a
         # flash(a)
         return redirect('/results')
