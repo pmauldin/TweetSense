@@ -22,17 +22,18 @@ def index():
         # print "###################"
         count = 200
         total = 0
-        query = form.query.data
+        query = form.query.data.replace('#','')
+
         # print "Query: %s" % query
         t = Twitter()
         a = t.getTweets(form.query.data, count)
         # f = open('app/data.txt', 'w')
         # f.write(str(a))
 
-        d = analyze(a, [float(i)/24.0 for i in range(-10*24, +2*24)])
+        d = analyze(a, [float(i)/24.0 for i in range(-10*24, +3*24)])
         # f2 =open('app/data2.txt', 'w')
         # f2.write(str(d))
-        # print graph
+        # print d
         # print a
         # flash(a)
         return redirect('/results')
