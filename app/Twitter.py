@@ -23,13 +23,14 @@ class Twitter:
 		tweets = ''
 		for i in data:
 			print i.text.encode('utf-8')
+			print i.created_at
 			print ''
 			tweets += i.text
 		return tweets
 
 	def getScore(self, chars):
 		response = self._alchemy_api.sentiment('text', chars)
-		return response
+		return response['docSentiment']['score']
 
 	# # returns lists for words
 	# def getTweets(self, q, cnt=100):	
@@ -52,3 +53,5 @@ class Twitter:
 	# 		result.append(tweets)
 	# 	return result
 
+t = Twitter()
+print t.getTweets('apple', 2)
