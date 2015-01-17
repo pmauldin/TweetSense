@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Query Results:</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <h3>{{ message }} </h3>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+{% endblock %}

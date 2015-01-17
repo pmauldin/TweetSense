@@ -142,7 +142,7 @@ class AlchemyAPI:
         import sys
         try:
             # Open the key file and read the key
-            f = open("api_key.txt", "r")
+            f = open("app/api_key.txt", "r")
             key = f.read().strip()
 
             if key == '':

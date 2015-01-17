@@ -2,5 +2,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hi, {{ user.nickname }}!</h1>
+
+    <h1>Enter your search query:</h1>
+    <form action="" method="post" name="login">
+    	{{ form.hidden_tag() }}    	
+    	<p>
+    		Please enter your search query:<br>
+            {{ form.query(size=80) }}
+        </p>
+
+    	<p><input type="submit" value="Submit"></p>
+    </form>
 {% endblock %}
