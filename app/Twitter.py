@@ -4,7 +4,7 @@ import tweepy
 import time, datetime
 import calendar
 import six
-from alchemyapi import AlchemyAPI
+# from alchemyapi import AlchemyAPI
 
 class Twitter:
 	_consumer_key = 'jU99EspHuhRubNUqeQGB14wWp'
@@ -13,7 +13,7 @@ class Twitter:
 	_access_token_secret = '3ehpdolDwNj9UYCkCV2HctT9OWlYwroI17adHKHaYRN0B'
 
 	_twitter_api = None
-	_alchemy_api = None
+	# _alchemy_api = None
 
 	dateFrom = ''
 	dateTo = ''
