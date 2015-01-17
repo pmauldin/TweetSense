@@ -97,7 +97,7 @@ frequently
 commonly
 long time <----------- NOTE multiword!
 repeatedly
-Probably
+probably
 
 bloody
 fucking
@@ -110,7 +110,7 @@ bleeping
 blimming
 bloody
 brimstone
-by God <----------- NOTE multiword!
+by god <----------- NOTE multiword!
 chuffing
 dafuq
 damn
@@ -139,18 +139,13 @@ himself
 holy
 honkin'
 however
-in
 god's
-name
-in
 heaven's
-name
 itself
 like
 living
 mad
 motherfucking
-cont.
 myself
 myselves
 on earth <----------- NOTE multiword!
