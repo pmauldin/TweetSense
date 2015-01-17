@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <style>
+        .heading{color:#C58917;}
+        .ultimate-wrapper{background-color:#FDD017;}
+        .bluecolor{background-color:#C1CFE8;}
+        .darkblue{background-color:#1C68EB}
+        .blurcolor{color:#588DE8; line-height: 1.5;}
+        .lowertab{border:0; line-height: 1.5;}
+        .upperborder{margin: 15px;
+                      padding: 25px;
+                      color: #C58917;
+                        }
+        .boldlygo{
+            font-weight: bold;
+        }                
+        /*.first-article{background-color:#966F33}*/
+        @media screen and (max-width: 900px) {
+                h1 {
+                    line-height: 35px;
+                }
+            }
+        @media screen and (max-width: 600px) {
+                h1 {
+                    font-size: 25px;
+                }
+            }    
+        @media screen and (max-width: 700px) {
+                title {
+                    padding-left: 35px;
+                }
+            }
+        @media screen and (max-width: 500px) {
+                li,a {
+                    padding: none;
+                    border: none;
+                    margin: none;
+                }
+            }                            
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+       <!--___________________NavBar Menu_____________________ -->
+        <div class="header-container bluecolor lowertab">
+            <header class="wrapper clearfix">
+                <h1 class="title blurcolor">TweetSense140</h1>
+                <nav class="bluecolor">
+                    <ul>
+                        <li><a href="#" class="bluecolor">Home</a></li>
+                        <li><a href="#" class="bluecolor">Random Graph</a></li>
+                        <li><a href="#" class="bluecolor">About us</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        <!-- ______________Product Description___________________ -->
+    <div class="ultimate-wrapper">    
+        <div class="first-article">
+            <article> 
+                <header>
+                        <h1 class="heading upperborder">Finally, We Can Make <a style="text-decoration: underline;">Sense</a> of All Those #Hashtags</h1>
+                        <p class="upperborder boldlygo">TweetSense140 is a powerful analyzing tool that reads user tweets and determines the sentiment behind the tweet. Using the Twitter API and Google Charts API our application can graph average user sentiment for a product, celebrity or event over time.</p>
+                </header>
+            </article>    
+        </div>
+
+        <div>
+            <img src="http://oi59.tinypic.com/5bzdwm.jpg" style=" width: 570px; height:380px; margin-left: 11%; margin-bottom: 0.5em;">
+            <img src="http://oi58.tinypic.com/ngvrbp.jpg" style=" width: 500px; margin-left: height:380px; 11%; margin-bottom: 0.5em;">
+        </div>
+        <!-- <a href="#section1" class="btn hover">Go to section 1</a> -->
+
+
+    <div class="main-container" name="section1">
+        <div class="main wrapper clearfix">
+
+            <h1>Get a sense of anything tweeted in the last 7 days:</h1>
+                <form action="" method="post" name="login">
+                    <!-- {{ form.hidden_tag() }}  -->
+               <div style="display:none;"><input id="csrf_token" name="csrf_token" type="hidden" value="1421521855##a1af18a55da3a2f50514a97306473557ba90b703"></div>         
+                    <!-- <p>
+                        Please enter your search query:<br>
+                        {{ form.query(size=80) }}
+                    </p> -->
+                    <p>
+                        Enter anything: (e.g #MHacks V)<br>
+                        <input id="query" name="query" size="80" type="text" value="">
+                    </p>
+                <p><input type="submit" value="Submit" class="btn hover"></p>
+
+
+               
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+         <div class="footer-container bluecolor"> 
+            <footer class="wrapper">
+                <h3>Facebook Link</h3>
+            </footer>
+        </div>
+</div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>

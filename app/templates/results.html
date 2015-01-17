@@ -4,13 +4,8 @@
 	<div>WafflesAtOne: <a href="/index">Home</a>
 	<h1>Query Results:</h1>
 	<!-- <h3>Sentiment: {{ score }} </h3> -->
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul>
-    {% for message in messages %}
-        <h3>{{ message }} </h3>
+    {% for d in data %}
+        <h3>{{ d }} </h3>
     {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
+
 {% endblock %}
