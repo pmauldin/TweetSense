@@ -19,12 +19,13 @@ class Twitter:
 
 	def getTweets(self, q, cnt=100):
 		data = self._twitter_api.search(q, count=cnt)
-		tweets = ''
+		tweets = ""
 		for i in data:
-			print i.text.encode('utf-8')
-			print ''
+			# print i.text.encode('utf-8')
+			# print ''
 			tweets += i.text
-			tweets += "\n"
+			tweets += "#?#?#?"
+		# print tweets
 		return tweets
 
 	def getScore(self, chars):
