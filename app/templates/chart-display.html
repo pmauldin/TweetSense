@@ -20,13 +20,13 @@
   //Also getting number of tweets that data was based on
   var companyname="Mcdonalds";  
   var companydata=[
-          ['January 12',  -22, 20],
-          ['January 13',  -12, 30],
-          ['January 14',  4, 40],
-          ['January 15',  -5, 50],
-          ['January 16',  31, 60],
-          ['January 17',  56, 60],
-          ['January 18',  40, 40]
+          ['January 12',  -2.2, 20],
+          ['January 13',  -1.2, 30],
+          ['January 14',  .4, 40],
+          ['January 15',  -.5, 50],
+          ['January 16',  3.1, 60],
+          ['January 17',  5.6, 60],
+          ['January 18',  4.0, 40]
             ];
     // Format= ["Company Name","Date",Sentiment Rating, #of Tweets];
     //Assuming that I am getting an array of company data with the index differing with different day Data, but the company name is the same every time
@@ -43,12 +43,11 @@
     for(i=0;i<=companydata.length-1;i++){
       subdata=companydata[i]; //subdata now takes the form of one element from the array companydata
       timedata.push(subdata[0]); //Inserts first element from companydata[i], which would be the time index
-      ratingdata.push(subdata[1]); //Inserts second element from companydata[i], which would be the twitter sentiment rating
+      ratingdata.push(10*subdata[1]); //Inserts second element from companydata[i], which would be the twitter sentiment rating
       amountoftweets.push(subdata[2]); //Inserts third element from companydata, which would be the amount of tweets
     }
 
       function drawChart() {
-
   var data = google.visualization.arrayToDataTable([
         ['Time','Rating','# of Tweets'],
         [timedata[0],ratingdata[0],amountoftweets[0]],
