@@ -17,8 +17,8 @@ def index():
         t = Twitter()
         a = t.getTweets(form.query.data, count)
 
-        # graph = analyze(a, [-1.0, 0.0, 1.0])
-        # print graph
+        graph = analyze(a, [-1.0, 0.0, 1.0])
+        print graph
         # print a
         # flash(a)
         return redirect('/results')

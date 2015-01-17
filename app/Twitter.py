@@ -43,7 +43,6 @@ class Twitter:
 				text = i.text.encode('utf-8')
 			tweets.append((i.text, daysPast))
 
-		print tweets
 		return tweets
 
 	# def getScore(self, chars):
