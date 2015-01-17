@@ -24,11 +24,15 @@ def index():
         count = 200
         total = 0
         query = form.query.data
-        print "Query: %s" % query
+        # print "Query: %s" % query
         t = Twitter()
         a = t.getTweets(form.query.data, count)
+        f = open('app/data.txt', 'w')
+        f.write(str(a))
 
-        d = analyze(a, [-10.0, 0.0, 2.0])
+        d = analyze(a, [-10.0, -7.0, -3, 0.0, 2.0])
+        f2 =open('app/data2.txt', 'w')
+        f2.write(str(d))
         # print graph
         # print a
         # flash(a)

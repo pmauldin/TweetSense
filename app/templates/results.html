@@ -40,12 +40,11 @@
     }
 
       function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-        ['Time','Rating'],
-        [timedata[0],ratingdata[0]],
-        [timedata[1],ratingdata[1]],
-        [timedata[2],ratingdata[2]]
-  ]);
+      	var startArray = [['Time', 'Rating']];
+      	for(i=0;i<companydata.length;i++) {
+      		startArray.push([timedata[i], ratingdata[i]]);
+      	}
+  var data = google.visualization.arrayToDataTable(startArray);
      /* function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Time', 'Rating', '# of tweets'],

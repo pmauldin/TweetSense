@@ -14,6 +14,8 @@ def analyze(timed_tweets, target_times):
             where time is measured in days from now'''
         timed_scores = [(time, Scorer.positivity(tweet))
                          for (time, tweet) in timed_tweets]
+        f = open('app/data3.txt', 'w')
+        f.write(str(timed_scores))
         return [(t, Interpolator.predict(timed_scores, t))
                 for t in target_times]
         

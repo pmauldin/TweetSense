@@ -37,6 +37,7 @@ class Twitter:
 			epochToTweet = calendar.timegm(t)
 			# print epochToTweet
 			daysPast = float(epochToTweet - epochToNow) / 86400
+			print daysPast
 			# print daysPast
 			text = i.text
 			if text[:2] == 'u\'':
