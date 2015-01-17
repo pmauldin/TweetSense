@@ -6,3 +6,4 @@ argparse==1.2.1
 gunicorn==19.1.1
 itsdangerous==0.24
 wsgiref==0.1.2
+tweepy=3.1.0
