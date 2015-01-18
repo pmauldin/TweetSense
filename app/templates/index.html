@@ -15,7 +15,7 @@
         <link href="{{ url_for('static', filename='css/normalize.min.css') }}" rel="stylesheet">
         <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
 
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="{{url_for('static', filename='js/vendor/modernizr-2.6.2-respond-1.1.0.min.js')}}"></script>
         <style>
         .heading{color:#C58917;}
         .ultimate-wrapper{background-color:#FDD017;}
@@ -85,8 +85,8 @@
         </div>
 
         <div>
-            <img src="http://oi59.tinypic.com/5bzdwm.jpg" style=" width: 570px; height:380px; margin-left: 11%; margin-bottom: 0.5em;">
-            <img src="http://oi58.tinypic.com/ngvrbp.jpg" style=" width: 500px; margin-left: height:380px; 11%; margin-bottom: 0.5em;">
+            <img src="{{url_for('static', filename='pennaps.jpg')}}" style=" width: 500px; height:353px; margin-left: 11%; margin-bottom: 0.5em;">
+            <img src="{{url_for('static', filename='mhacks.png')}}" style=" width: 500px; margin-left: height:380px; 11%; margin-bottom: 0.5em;">
         </div>
         <!-- <a href="#section1" class="btn hover">Go to section 1</a> -->
 
@@ -100,10 +100,12 @@
                <div style="display:none;"><input id="csrf_token" name="csrf_token" type="hidden" value="1421521855##a1af18a55da3a2f50514a97306473557ba90b703"></div>         
                     <!-- <p> -->
                         <!-- Please enter your search query:<br> -->
-                    {{ form.query(size=80) }}
+                    <h4>Enter term to analyze: (e.g #MHacks)</h4> 
+                    {{ form.query(size=50) }}
+                    <p>(Optional) Enter second term to compare against.</p>
+                    {{ form.opQuery(size=50 )}}
                     <!-- </p> -->
                     <p>
-                        Enter anything: (e.g #MHacks V)<br>
                         <!-- <input id="query" name="query" size="80" type="text" value=""> -->
                         <input type="submit" value="Submit" class="btn hover">
                     </p>
@@ -120,7 +122,7 @@
         <!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
 
-        <script src="js/main.js"></script>
+        <script src="{{url_for('static', filename='js/main.js')}}"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

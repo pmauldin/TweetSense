@@ -1,4 +1,4 @@
-#coding utf-8
+#coding: utf8
 
 '''.............................
    Creation 2015 by WafflesAtOne
