@@ -29,7 +29,17 @@
                         }
         .boldlygo{
             font-weight: bold;
-        }                
+        }
+        .form-space {
+        	padding-top: 10px;
+        	padding-bottom: 20px;
+        }        
+        .random-button {
+        	float: left;
+        	clear: none;
+        	margin-top: 2%;
+        	margin-left: 8%;
+        }        
         /*.first-article{background-color:#966F33}*/
         @media screen and (max-width: 900px) {
                 h1 {
@@ -73,49 +83,36 @@
                 </nav>
             </header>
         </div>
-        <!-- ______________Product Description___________________ -->
-    <div class="ultimate-wrapper">    
-        <div class="first-article">
-            <article> 
-                <header>
-                        <h1 class="heading upperborder">Finally, We Can Make <a style="text-decoration: underline;">Sense</a> of All Those #Hashtags</h1>
-                        <p class="upperborder boldlygo">TweetSense140 is a powerful analyzing tool that reads user tweets and determines the sentiment behind the tweet. Using the Twitter API and Google Charts API our application can graph average user sentiment for a product, celebrity or event over time.</p>
-                </header>
-            </article>    
-        </div>
-
-        <div>
-            <img src="{{url_for('static', filename='pennaps.jpg')}}" style=" width: 500px; height:353px; margin-left: 11%; margin-bottom: 0.5em;">
-            <img src="{{url_for('static', filename='mhacks.png')}}" style=" width: 500px; margin-left: height:380px; 11%; margin-bottom: 0.5em;">
-        </div>
-        <!-- <a href="#section1" class="btn hover">Go to section 1</a> -->
-
-
+<div class="ultimate-wrapper"> 
     <div class="main-container" name="section1">
         <div class="main wrapper clearfix">
-
-            <h1>Get a sense of anything tweeted in the last 7 days:</h1>
+        	<br>
+            <h1>Discover a new combination:</h1>
                 <form action="" method="post" name="login">
                     {{ form.hidden_tag() }} 
                <div style="display:none;"><input id="csrf_token" name="csrf_token" type="hidden" value="1421521855##a1af18a55da3a2f50514a97306473557ba90b703"></div>         
                     <!-- <p> -->
                         <!-- Please enter your search query:<br> -->
-                    <h4>Enter term to analyze: (e.g #MHacks)</h4> 
+                    <div class="form-space">
                     {{ form.query(size=50) }}
-                    <p>(Optional) Enter second term to compare against.</p>
+                	</div>
                     {{ form.opQuery(size=50 )}}
                     <!-- </p> -->
                     <p>
                         <!-- <input id="query" name="query" size="80" type="text" value=""> -->
-                        <input type="submit" value="Submit" class="btn hover">
+                        <input type="submit" name="btn" value="Randomize" class="btn hover random-button">
+                        <input type="submit" name="btn" value="Submit" class="btn hover random-button" style="margin-left: 22%">
                     </p>
+                    <br><br>
                
             </div> <!-- #main -->
         </div> <!-- #main-container -->
 
-         <div class="footer-container bluecolor"> 
+         <div class="footer-container bluecolor" style="border-top: 30px solid #e44d26;"> 
             <footer class="wrapper">
-                <h3><a href="https://www.facebook.com/tweetsense">Facebook Link</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/pmauldin/Waffles-at-one">GitHub Repo</a></h3>
+            	<br><br>
+                <h2><a href="https://www.facebook.com/tweetsense">Facebook Link</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/pmauldin/Waffles-at-one">GitHub Repo</a></h2>
+                <br><br>
             </footer>
         </div>
 </div>

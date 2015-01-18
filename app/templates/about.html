@@ -11,7 +11,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Un-Comment this after page is pushed to github -->
-
        <link href="{{ url_for('static', filename='css/normalize.min.css') }}" rel="stylesheet">
         <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet"> 
 
@@ -168,9 +167,7 @@
         li {
             list-style-type: none;
         }
-        .blod{
-            font-weight: bold;
-        }
+
         div.panel,div.panel1,div.panel2,div.panel3,div.panel4,p.flop,p.flap,p.flep
         {
             width:90%;
@@ -254,7 +251,7 @@
                 <nav class="bluecolor">
                     <ul>
                         <li><a href="/" class="bluecolor">Home</a></li>
-                        <li><a href="#" class="bluecolor">Random Graph</a></li>
+                        <li><a href="/random" class="bluecolor">Random Graph</a></li>
                         <li><a href="/about" class="bluecolor">About us</a></li>
                     </ul>
                 </nav>
@@ -271,32 +268,34 @@
 						<li><a href="http://mhacks.org/" class="no-link">MHacks</a> or <a href="http://2015s.pennapps.com/" class="no-link">PennApps</a>? </li> <!-- Obviously it's MHacks -->
 						<li><a href="http://screenrant.com/batman-vs-superman-cinematic-history-henry-cavill/" class="no-link">Batman or Superman</a>?</li> <!-- Superman, Batman sucks -->
 						<li><a href="https://www.apple.com/" class="no-link">Apples</a> or <a href="http://www.orange.co.uk/" class="no-link">Oranges</a>?</li> <!-- Yuck!, neither -->
-						<li>NASDAQ:  <a href="http://bit.ly/1uerlRv">AAPL</a> or NASDAQ: <a href="http://bit.ly/1ybDlCX">GOOG</a>? </li><!--  Google all the way -->
+						<li>NASDAQ:  <a href="http://bit.ly/1uerlRv">AAPL</a> or <b>NASDAQ: <a href="http://bit.ly/1ybDlCX">GOOG</a>? </li><!--  Google all the way -->
 						<li>Google or Bin-<span id="typed-cursor" class="blinking">|</span></li> <!-- Agreed -->
 						<br>
-                        <i class="blod">Wait, scratch that last one</i>
+                        <i>Wait, scratch that last one</i>
                     </ul>
                     <p class="maintextstyle spaceless spacelesstop">
-						Behold! <i class="blod">TweetSense</i> instantly reports on your favorite hot topics:
-						 MHacks, Superman, Isis, Ariana Grande, (you get the picture). Find out how people generally feel about these things. A high rating means people associate the topic with really good things like fun and happiness. A rating in the gutter means the topic is displeasing, like violence or sadness.
-						It's all based on our in-house semantic analysis of relevant tweets, presented beautifully in digestible graphs.</p>
+						Behold! <b><i>TweetSense</i></b> instantly reports on your favorite popularity contest:
+						How popular things were, are, and <i>will be</i>.
+						All based on our in-house semantic analysis of relevant tweets, presented beautifully in digestible graphs.</p>
                 </header>
 				<header>
                         <h1 class="heading upperborder spaceless"> Behind The Scenes </h1>
                         <p class="maintextstyle spaceless"> We're proudest of our semantic tweet analysis and equally so about locally-weighted linear regression used to predict future trends, all written from scratch. 
                         </p>
 
-                         <p class="maintextstyle spaceless spacelesstop">
+                         <p class="maintextstyle spaceless">
                             Our code parses through hundreds of recent user tweets upon request (obtained through Twitter's <a href="https://dev.twitter.com/">API</a>) and analyzes each tweet's sentiment. It then displays wonderful line graphs thanks to Google's Chart <a href="https://developers.google.com/chart/">API</a>.
                          </p>
-                         <p class="maintextstyle spaceless spacelesstop">
-                            It's amazing how natural the resulting extrapolations turn out! They reflect true changes of heart! (The numbers don't lie!). 
+                         <p class="maintextstyle spaceless">
+                            It's amazing how natural the resulting extrapolations turn out! They reflect true changes of heart
+            
+						See for yourself how our popularity predictions, say of the term "MHacks", compare to reality! Hint: they're pretty accurate. INSERT GRAPH!
                         </p>
 
 						<!-- To bring the power of this core mathematical engine to <i>everyone's fingertips</i>, we wrapped it all in BLAH BLAH BLAH -->
-                        <p class="maintextstyle spaceless spacelesstop">
-						We mined our source data from Twitter's API.
-						We used Heroku for hosting, Python as the main back-end language, while Javascript helped translate numbers into graphs. Of course we used responsive HTML5 and CSS3 for this awesome website. In the future, we hope to integrate Alchemy's API (when we can afford the calls) and Bloomberg's API in the long term to provide even more interesting data.
+                        <p class="maintextstyle spaceless">
+						We mined our source data from Twitter API and Bloomberg's financial data service BLAH BLAH BLAH
+						We used Heroku as host, Python was our main language, while Javascript helped translate numbers into graphs. Of course we used responsive HTML5 and CSS3 for this awesome website. In the future, we hope to integrate Alchemy's API (when we can afford the calls) and Bloomberg's API in the long term to provide even more interesting data.
                         </p>
 
                 </header>

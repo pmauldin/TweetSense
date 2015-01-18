@@ -94,8 +94,8 @@
                 <h1 class="title blurcolor">TweetSense140</h1>
                 <nav class="bluecolor">
                     <ul>
-                        <li><a href="/index" class="bluecolor">Home</a></li>
-                        <li><a href="#" class="bluecolor">Random Graph</a></li>
+                        <li><a href="/" class="bluecolor">Home</a></li>
+                        <li><a href="/random" class="bluecolor">Random Graph</a></li>
                         <li><a href="/about" class="bluecolor">About us</a></li>
                     </ul>
                 </nav>
@@ -144,7 +144,7 @@
 
          <div class="footer-container bluecolor"> 
             <footer class="wrapper">
-                <h3>Facebook Link</h3>
+                <h3><a href="https://www.facebook.com/tweetsense">Facebook Link</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/pmauldin/Waffles-at-one">GitHub Repo</a></h3>
             </footer>
         </div>
 </div>
@@ -196,7 +196,7 @@
       // amountoftweets.push(subdata[2]); //Inserts third element from companydata, which would be the amount of tweets
     }
       function drawChart() {
-        var startArray = [['Time', 'Rating']];
+        var startArray = [['Time', '{{ q }}']];
         for(i=0;i<companydata.length;i++) {
             startArray.push([timedata[i], ratingdata[i]]);
         }
@@ -213,6 +213,8 @@
           ['January 18',  40, 40]
         ]);   */ 
         var options = {
+          hAxis: {title: 'Time (in days)'},
+          vAxis: {title: 'Good                     Bad'},
           curveType: 'function',
           legend: { position: 'bottom' }
         };
@@ -244,9 +246,8 @@
         }
         var data = google.visualization.arrayToDataTable(arr);
         var options2 = {
-         // title: 'Company Performance',
-          //hAxis.title: 'Time',
-         // vAxis.title: 'Rating',
+          hAxis: {title: 'Time (in days)'},
+          vAxis: {title: 'Emotional Connotation'},
           curveType: 'function',
           legend: { position: 'bottom' }
         };

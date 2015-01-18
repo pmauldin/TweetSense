@@ -1,9 +1,9 @@
 #coding: utf8
 
-import urllib.request
+import urllib
 
 def get_random_title():
-   response = urllib.request.urlopen('http://en.wikipedia.org/wiki/Special:Random')
+   response = urllib.urlopen('http://en.wikipedia.org/wiki/Special:Random')
    html = response.read()
 
    html = repr(html)
@@ -17,14 +17,13 @@ def get_random_topic():
       t = get_random_title()
    return t
 
-'''
-print(get_random_topic())
-print(get_random_topic())
-print(get_random_topic())
-print(get_random_topic())
-print(get_random_topic())
-print(get_random_topic())
-print(get_random_topic())
-print(get_random_topic())
 
-'''
+# print(get_random_topic())
+# print(get_random_topic())
+# print(get_random_topic())
+# print(get_random_topic())
+# print(get_random_topic())
+# print(get_random_topic())
+# print(get_random_topic())
+# print(get_random_topic())
+
