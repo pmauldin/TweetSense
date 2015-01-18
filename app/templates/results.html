@@ -7,7 +7,12 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        {% if q2 %}
+        <title>{{ q }} VS {{ q2 }}</title>
+        {% else %}
         <title>{{ q }}</title>
+        {% endif %}
+        
 
         <link href="{{ url_for('static', filename='css/normalize.min.css') }}" rel="stylesheet">
         <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
@@ -112,21 +117,7 @@
               <div class="heading upperborder" style="text-align: center"><h1>{{ q }}</h1></div>
               <div class="chart" id='output_chart' style="align: center; width: 900px; height: 500px"></div> 
               {% endif %}
-            <div class="first-article">
-            <article> 
-                <header>
-                        <h1 class="heading upperborder"><a style="text-decoration: underline;"><!-- {{ q }} --></a></h1>
-                        
-                        <p class="upperborder boldlygo">Options</p>
-                    <ul class="boldlygo">
-                        <li class="upperborder boldlygo">Search for this on <a href='https://www.google.com/?gws_rd=ssl'>Google</a></li>
-                        <li class="upperborder boldlygo">Search <a href='/index'>another</a> term</li>
-                        <li class="upperborder boldlygo"><a href='/index'>Compare</a> two terms</li>
-                        <li class="upperborder boldlygo">Learn about our <a href='/index'>mission</a></li>
-                </header>
-            </article>    
-        </div>
-        <!-- <a href="#section1" class="btn hover">Go to section 1</a> -->
+ 
 
 
     <div class="main-container" name="section1">
