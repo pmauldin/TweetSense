@@ -4,6 +4,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>{{ q }}</title>
@@ -21,136 +22,7 @@
               'packages':['corechart']
             }]
           }"></script>
-           <script type="text/javascript">
-    // $.get(URL,data,function(data,status,xhr),dataType)
-    //$.get("http://feeling-tweety.herokuapp.com/",data,function(data,status,xhr),json)
-  // Getting the company name, the day and the rating for that day
-  //Also getting number of tweets that data was based on
-  var companydata={{ data }};
-  // var second = false;
-  // var second = !(data2 == null)
-  // document.write(companyda;ta);
-    // Format= ["Company Name","Date",Sentiment Rating, #of Tweets];
-    //Assuming that I am getting an array of company data with the index differing with different day Data, but the company name is the same every time
- </script>
-</head>
-    <script type="text/javascript">
-      google.setOnLoadCallback(drawChart);
-       var subdata =[];
-    var timedata =[];
-    var ratingdata =[];
-    // var amountoftweets =[];
-    
-    for(i=0;i<=companydata.length-1;i++){
-      subdata=companydata[i]; //subdata now takes the form of one element from the array companydata
-      timedata.push(subdata[0]); //Inserts first element from companydata[i], which would be the time index
-      ratingdata.push(subdata[1]); //Inserts second element from companydata[i], which would be the twitter sentiment rating
-      // amountoftweets.push(subdata[2]); //Inserts third element from companydata, which would be the amount of tweets
-    }
-      function drawChart() {
-        var startArray = [['Time', 'Rating']];
-        for(i=0;i<companydata.length;i++) {
-            startArray.push([timedata[i], ratingdata[i]]);
-        }
-  var data = google.visualization.arrayToDataTable(startArray);
-     /* function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Time', 'Rating', '# of tweets'],
-          ['January 12',  -22, 20],
-          ['January 13',  -12, 30],
-          ['January 14',  4, 40],
-          ['January 15',  -5, 50],
-          ['January 16',  31, 60],
-          ['January 17',  56, 60],
-          ['January 18',  40, 40]
-        ]);   */ 
-        var options = {
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-        var chart = new google.visualization.LineChart(document.getElementById('output_chart'));
-        chart.draw(data, options);
-      }
-    </script>
-
-
-    <script type="text/javascript">
-      google.setOnLoadCallback(drawChart2);
-       var subdata2 =[];
-       var subdata3 =[];
-    var timedata2 =[];
-    var ratingdata2 =[];
-    var ratingdata3 =[];
-    console.log(companydata2);
-    
-    for(i=0;i<=companydata.length-1;i++){
-      subdata2=companydata[i];
-      subdata3=companydata2[i]; //subdata now takes the form of one element from the array companydata
-      timedata2.push(subdata2[0]); //Inserts first element from companydata[i], which would be the time index
-      ratingdata2.push(subdata2[1]);
-      ratingdata3.push(subdata3[1]); //Inserts second element from companydata[i], which would be the twitter sentiment rating
-      // amountoftweets.push(subdata[2]); //Inserts third element from companydata, which would be the amount of tweets
-    }
-      function drawChart2() {
-        arr = [['Time', 'Rating1', 'Rating2']];
-        // console.log(timedata2[0])
-        for(j=0;j<timedata2.length-1;j++) {
-          var a =[];
-          try {
-            // console.log(timedata2[j]);
-            a.push(parseInt(timedata2[j]));
-            a.push(parseInt(ratingdata2[j]));
-            a.push(parseInt(ratingdata3[j]));
-          } catch (e) {
-            document.write("error: " + j + " " + e);
-          }
-          // if parseFloat(timedata2[i]) === null:
-          //   a.push(0);
-          // else:
-          //   a.push(parseFloat(timedata2[i]));
-          // if parseFloat(ratingdata2[i]) === null:
-          //   a.push(0);
-          // else:
-          //   a.push(parseFloat(ratingdata2[i]));
-          // if parseFloat(ratingdata3[i]) === null:
-          //   a.push(0);
-          // else:
-          //   a.push(parseFloat(ratingdata3[i]));
-          arr.push(a);
-        }
-        
-        // array.push([0,0,15]);
-        // array.push([10,15,0]);
-        // array.push(timedata2[0], ratingdata2[0], ratingdata3[0]);
-        var data2 = google.visualization.arrayToDataTable(arr);
-        
-  //       var startArray2 = [['Time', 'Rating', 'Rating2']];
-  //       for(i=0;i<companydata.length;i++) {
-  //           startArray2.push([timedata2[i], ratingdata2[i], ratingdata3[i]]);
-  //       }
-  // var data2 = google.visualization.arrayToDataTable(startArray2);
-     /* function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Time', 'Rating', '# of tweets'],
-          ['January 12',  -22, 20],
-          ['January 13',  -12, 30],
-          ['January 14',  4, 40],
-          ['January 15',  -5, 50],
-          ['January 16',  31, 60],
-          ['January 17',  56, 60],
-          ['January 18',  40, 40]
-        ]);   */ 
-        var options2 = {
-         // title: 'Company Performance',
-          //hAxis.title: 'Time',
-         // vAxis.title: 'Rating',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-        var chart2 = new google.visualization.LineChart(document.getElementById('output_chart2'));
-        chart2.draw(data2, options2);
-      }
-    </script>
+ 
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -232,15 +104,14 @@
               {% if data2 %}
               <script>
                 second = true;
-                var companydata2 = {{ data2 }};
+                var companydata2 = [{{ data2 }}];
                 document.write(companydata2);
-                // console.log(companydata2);
               </script>
               <div class="heading upperborder"><h1>{{ q }} VS {{ q2 }}</h1></div>
               <div id="output_chart2" style="width: 900px; height: 500px"></div>   
               {% else %}
               <div class="heading upperborder"><h1>{{ q }}</h1></div>
-              <div id="output_chart" style="width: 900px; height: 500px"></div> 
+              <div id='output_chart' style="width: 900px; height: 500px"></div> 
               {% endif %}
             <div class="first-article">
             <article> 
@@ -301,5 +172,127 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
+
+                  <script type="text/javascript">
+    // $.get(URL,data,function(data,status,xhr),dataType)
+    //$.get("http://feeling-tweety.herokuapp.com/",data,function(data,status,xhr),json)
+  // Getting the company name, the day and the rating for that day
+  //Also getting number of tweets that data was based on
+  var companydata={{ data }};
+  var companydata2={{ data2 }};
+  // var second = false;
+  // var second = !(data2 == null)
+  // document.write(companyda;ta);
+    // Format= ["Company Name","Date",Sentiment Rating, #of Tweets];
+    //Assuming that I am getting an array of company data with the index differing with different day Data, but the company name is the same every time
+ </script>
+</head>
+    <script type="text/javascript">
+      google.setOnLoadCallback(drawChart);
+       var subdata =[];
+    var timedata =[];
+    var ratingdata =[];
+    // var amountoftweets =[];
+    
+    for(i=0;i<=companydata.length-1;i++){
+      subdata=companydata[i]; //subdata now takes the form of one element from the array companydata
+      timedata.push(subdata[0]); //Inserts first element from companydata[i], which would be the time index
+      ratingdata.push(subdata[1]); //Inserts second element from companydata[i], which would be the twitter sentiment rating
+      // amountoftweets.push(subdata[2]); //Inserts third element from companydata, which would be the amount of tweets
+    }
+      function drawChart() {
+        var startArray = [['Time', 'Rating']];
+        for(i=0;i<companydata.length;i++) {
+            startArray.push([timedata[i], ratingdata[i]]);
+        }
+  var data = google.visualization.arrayToDataTable(startArray);
+     /* function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Time', 'Rating', '# of tweets'],
+          ['January 12',  -22, 20],
+          ['January 13',  -12, 30],
+          ['January 14',  4, 40],
+          ['January 15',  -5, 50],
+          ['January 16',  31, 60],
+          ['January 17',  56, 60],
+          ['January 18',  40, 40]
+        ]);   */ 
+        var options = {
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+        var chart = new google.visualization.LineChart(document.getElementById('output_chart'));
+        chart.draw(data, options);
+      }
+      console.log("HERE.1.1");
+    </script>
+
+    <script type="text/javascript">
+    console.log("HERE...");
+      google.setOnLoadCallback(drawChart);
+       var subdata2 =[];
+       var subdata3 =[];
+    var timedata2 =[];
+    var ratingdata2 =[];
+    var ratingdata3 =[];
+    
+    console.log("HERE");
+    for(i=0;i<=companydata.length-1;i++){
+      subdata2=companydata[i];
+      subdata3=companydata2[i]; //subdata now takes the form of one element from the array companydata
+      timedata2.push(subdata2[0]); //Inserts first element from companydata[i], which would be the time index
+      // console.log(timedata2[0]);
+      ratingdata2.push(subdata2[1]);
+      ratingdata3.push(subdata3[1]); //Inserts second element from companydata[i], which would be the twitter sentiment rating
+      // amountoftweets.push(subdata[2]); //Inserts third element from companydata, which would be the amount of tweets
+    }
+    // console.log("timedata2: " + timedata2.length);
+    // console.log("ratingdata2: " + ratingdata2.length);
+    // console.log("ratingdata3: " + ratingdata3.length);
+    // console.log("HERE?!");
+      // function drawChart() {
+        a
+          // console.log(array);
+        
+        // array.push([0,0,15]);
+        // array.push([10,15,0]);
+        // array.push(timedata2[0], ratingdata2[0], ratingdata3[0]);
+        // var data = google.visualization.arrayToDataTable(array);
+        
+  //       var startArray2 = [['Time', 'Rating', 'Rating2']];
+  //       for(i=0;i<companydata.length;i++) {
+  //           startArray2.push([timedata2[i], ratingdata2[i], ratingdata3[i]]);
+  //       }
+  // var data2 = google.visualization.arrayToDataTable(startArray2);
+      function drawChart() {
+        arr = [['Time', '{{ q }}', '{{ q2 }}']];
+        // console.log("HEELLOOOO");
+        // data.push([timedata2[0], ratingdata2[0], ratingdata3[0]]);
+        for(i=0;i<timedata2.length-1;i++) {
+          arr.push([timedata2[i], ratingdata2[i], ratingdata3[i]]);
+        }
+        var data = google.visualization.arrayToDataTable(arr);
+        //   ['Time', "{{ q }}" + ' Rating', '# of tweets'],
+        //   ['January 12',  -22, 20],
+        //   ['January 13',  -12, 30],
+        //   ['January 14',  4, 40],
+        //   ['January 15',  -5, 50],
+        //   ['January 16',  31, 60],
+        //   ['January 17',  56, 60],
+        //   ['January 18',  40, 40]
+        // ]);    
+        var options2 = {
+         // title: 'Company Performance',
+          //hAxis.title: 'Time',
+         // vAxis.title: 'Rating',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+        var chart2 = new google.visualization.LineChart(document.getElementById('output_chart2'));
+        chart2.draw(data, options2);
+      }
+    </script>
+
+
     </body>
 </html>

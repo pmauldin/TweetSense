@@ -5,8 +5,8 @@ from Twitter import Twitter
 from Analysis import analyze
 
 
-d = [()]
-d2 = [()]
+d = [[]]
+d2 = [[]]
 
 def listtups_to_listlists(lt):
   return [[x, y] for (x, y) in lt]
@@ -76,17 +76,20 @@ def results():
   # print query
   if not query2 == "":
     # print "Second value"
-    # dataList2 = listtups_to_listlists(d2)
+    dataList2 = listtups_to_listlists(d2)
+    f = open('app/data.txt', 'w')
+    f.write("dataList2: \n\n")
+    f.write(str(dataList2))
     return render_template('results.html',
                            title='Results',
                            q=query,
                            q2=query2,
-                           data=d,
-                           data2=d2,
+                           data=dataList,
+                           data2=dataList2,
                            form=form)
 
   return render_template('results.html',
                            title='Results',
                            q=query,
-                           data=d,
+                           data=dataList,
                            form=form)
