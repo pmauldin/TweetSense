@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<!-- Combination of index and base -->
+  <head>
+    {% if title %}
+    <title>{{ title }} - WafflesAtOne</title>
+    {% else %}
+    <title>WafflesAtOne</title>
+    {% endif %}
+  </head>
+    
+<body>
+
+</body>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='finance.js') }}"></script>
+</html>
