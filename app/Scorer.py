@@ -22,7 +22,7 @@ INTENSIFIERS = ['many', 'most', 'numerous', 'countless', 'majority', 'often', 'f
 
 scores = dict([])
 for pw in POSITIVES: scores[pw] = +1.0/len(pw)**0.5
-for nw in NEGATIVES: scores[nw] = -1.0/len(nw)**0.5
+for nw in NEGATIVES: scores[nw] = -1.5/len(nw)**0.5
 
 multipliers = dict([])
 for nm in NEGATORS:     multipliers[nm] = -1.00
@@ -47,6 +47,7 @@ def positivity(tweet): ## todo: target_word??
    return score
 
 
+
 '''
 test_tweets = ['rainbow',
               'many rainbow',
@@ -55,4 +56,5 @@ test_tweets = ['rainbow',
               'few rainbow']
 for tweet in test_tweets:
    print(tweet, ' \t', positivity(tweet))
-'''
+   '''
+
