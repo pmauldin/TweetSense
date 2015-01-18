@@ -5,37 +5,39 @@ from Twitter import Twitter
 from Analysis import analyze
 
 
-d = [[]]
+d = [()]
+d2 = [()]
 
 def listtups_to_listlists(lt):
   return [[x, y] for (x, y) in lt]
 
 query = ""
+query2 = ""
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     global query
+    global query2
     global d
+    global d2
     form = LoginForm()
     if form.validate_on_submit():
         # print "###################"
         count = 200
-        total = 0
-        query = form.query.data.replace('#','')
 
-        # print "Query: %s" % query
+        query = form.query.data.replace('#','').strip()
+        query2 = form.opQuery.data.replace('#','').strip()
+
         t = Twitter()
-        a = t.getTweets(form.query.data, count)
-        # f = open('app/data.txt', 'w')
-        # f.write(str(a))
 
+        a = t.getTweets(query, count)
         d = analyze(a, [float(i)/24.0 for i in range(-10*24, +3*24)])
-        # f2 =open('app/data2.txt', 'w')
-        # f2.write(str(d))
-        # print d
-        # print a
-        # flash(a)
+
+        if not query2 == "":
+          a = t.getTweets(query2, count)
+          d2 = analyze(a, [float(i)/24.0 for i in range(-10*24, +3*24)])
+
         return redirect('/results')
     return render_template('index.html',
                            title='Home',
@@ -43,30 +45,48 @@ def index():
 
 @app.route('/results')
 def results():
+  if d ==  [] or d == [[]]:
+    return redirect('/index')
   global query
+  global query2
   global d
+  global d2
   dataList = listtups_to_listlists(d)
+
+  form = LoginForm()
+  if form.validate_on_submit():
+      # print "###################"
+      count = 200
+
+      query = form.query.data.replace('#','').strip()
+      query2 = form.opQuery.data.replace('#','').strip()
+
+      t = Twitter()
+
+      a = t.getTweets(query, count)
+      d = analyze(a, [float(i)/24.0 for i in range(-10*24, +3*24)])
+
+      if not query2 == "":
+        a = t.getTweets(query2, count)
+        d2 = analyze(a, [float(i)/24.0 for i in range(-10*24, +3*24)])
+
+      return redirect('/results')
 
   # print dataList
   # print query
+  if not query2 == "":
+    # print "Second value"
+    # dataList2 = listtups_to_listlists(d2)
+    return render_template('results.html',
+                           title='Results',
+                           q=query,
+                           q2=query2,
+                           data=d,
+                           data2=d2,
+                           form=form)
 
   return render_template('results.html',
                            title='Results',
                            q=query,
-                           data=dataList)
-
-@app.route('/finance')
-def finance():
-  global query
-  global d
-  dataList = []
-  return render_template('finance.html',
-                           title='Results',
-                           q=query,
-                           data=dataList)
-
-
-
-
-
-
+                           data=d,
+                           form=form)
