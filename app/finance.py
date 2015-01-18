@@ -41,8 +41,7 @@ class Finance:
                 preData['companyName'] = i['securityData']['security']
                 preData['prices'] = prices
                 finalData.append(preData)
-            print finalData
-            return res.read()
+            return finalData
         except Exception as e:
             e
             print e
@@ -60,17 +59,9 @@ class Finance:
 
 
 
-# t = Finance()
-# t.setDate('20150114','20150116')
-# t.setCorpName(['AAPL US Equity', 'IBM US Equity'])
-# t.getData()
-
-
-
-
-
-
-
-
+t = Finance()
+t.setDate('20140114','20150116')
+t.setCorpName(['AAPL US Equity', 'IBM US Equity'])
+print t.getData()
 
 
