@@ -28,10 +28,10 @@ class Finance:
             epochToNow = int(time.time())
             res = urllib2.urlopen(self.req, data=json.dumps(self.data), context=self.ctx)
             foo = eval(res.read())
-            preData = {}
             finalData = []
             for i in foo['data']: # for each company
                 prices = []
+                preData = {}            
                 for j in i['securityData']['fieldData']:
                     _date = j['date'][:10]
                     t = time.strptime(str(_date), "%Y-%m-%d")
@@ -54,7 +54,6 @@ class Finance:
 
     def setCorpName(self, _list):
         self.data['securities'] = _list
-
 
 
 
