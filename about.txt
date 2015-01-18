@@ -1,8 +1,24 @@
-About:
+TWEETSENSE
 
-Finally, we can settle once and for all these age-old questions MHacks or Pennapps? Apples or oranges?
-NASDAQ: AAPL or NASDAQ: GOOG? 
+Finally, we can settle once and for all these age-old questions: MHacks or Pennapps?
+Apples or oranges? NASDAQ: AAPL or NASDAQ: GOOG? Google or Bin--- wait. scratch that last one.
+
+Behold! {TweetSense} instantly reports on your favorite popularity contest:
+How popular they were, they are, and they _will be_.
+All based on our in-house semantic analysis of relevant tweets,
+presented beautifully in digestible graphs.
+
+<Batman v. Superman>
+
+BEHIND THE SCENES
+We're proudest of our semantic analysis and locally-weighted linear regression, written from scratch.
+It's amazing how natural the resulting extrapolations into the future are!
+Just see for yourself <Link: proactivity v procrastination>
+<Cowboys graph>
+
+Around this core mathematical engine, we wove Twitter API as a data source, Heroku as host, ... .
+Python was our main language, but.
+We also integrated Bloomberg's financial data service to even better inform stock comparisons.
 
 TEAM MEMBERS
-Peter, Hoon, William, Samuel, Vanessa
-
+Lovingly hacked together by Peter M, Hoon L, William W, Samuel T, Vanessa C
