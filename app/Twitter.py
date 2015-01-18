@@ -50,6 +50,9 @@ class Twitter:
 			# data_list.append((-days, float(res['docSentiment']['score'])))
 		return tweets
 
+	def checkTerm(self, q):
+		return len(self._twitter_api.search(q, count=6)) >= 6
+
 
 	# def getTweets(self, q, cnt):
 	# 	data = self._twitter_api.search(q, count=cnt, result_type='popular')

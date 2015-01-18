@@ -18,7 +18,7 @@ def setGraphs(form):
   global d
   global d2
 
-  count = 30
+  count = 80
 
   query = str(form.query.data.replace('#','').strip())
   query2 = str(form.opQuery.data.replace('#','').strip())
@@ -98,7 +98,12 @@ def random():
     print "??"
     if request.form['btn'] == 'Randomize':
       t1=get_random_topic().split(' ', 1)[0]
+      while not Twitter().checkTerm(t1):
+        t1=get_random_topic().split(' ', 1)[0]
+
       t2=get_random_topic().split(' ', 1)[0]
+      while not Twitter().checkTerm(t2):
+        t2=get_random_topic().split(' ', 1)[0]
       print "t1: %s\nt2: %s" % (t1, t2)
       form.query.data=t1
       form.opQuery.data=t2
