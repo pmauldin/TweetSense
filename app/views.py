@@ -43,10 +43,10 @@ def index():
                            title='Home',
                            form=form)
 
-@app.route('/results')
+@app.route('/results', methods=['GET', 'POST'])
 def results():
-  if d ==  [] or d == [[]]:
-    return redirect('/index')
+  # if d ==  [] or d == [[]]:
+    # return redirect('/index')
   global query
   global query2
   global d
@@ -77,9 +77,6 @@ def results():
   if not query2 == "":
     # print "Second value"
     dataList2 = listtups_to_listlists(d2)
-    f = open('app/data.txt', 'w')
-    f.write("dataList2: \n\n")
-    f.write(str(dataList2))
     return render_template('results.html',
                            title='Results',
                            q=query,
@@ -93,3 +90,8 @@ def results():
                            q=query,
                            data=dataList,
                            form=form)
+
+@app.route('/about')
+def about():
+  return render_template('about.html',
+                          title='Results')

@@ -105,7 +105,6 @@
               <script>
                 second = true;
                 var companydata2 = [{{ data2 }}];
-                document.write(companydata2);
               </script>
               <div class="heading upperborder"><h1>{{ q }} VS {{ q2 }}</h1></div>
               <div id="output_chart2" style="width: 900px; height: 500px"></div>   
@@ -135,19 +134,19 @@
 
             <h1>Get a sense of anything tweeted in the last 7 days:</h1>
                 <form action="" method="post" name="login">
-                    <!-- {{ form.hidden_tag() }}  -->
+                    {{ form.hidden_tag() }} 
                <div style="display:none;"><input id="csrf_token" name="csrf_token" type="hidden" value="1421521855##a1af18a55da3a2f50514a97306473557ba90b703"></div>         
-                    <!-- <p>
-                        Please enter your search query:<br>
-                        {{ form.query(size=80) }}
-                    </p> -->
+                    <!-- <p> -->
+                        <!-- Please enter your search query:<br> -->
+                    <h4>Enter term to analyze: (e.g #MHacks)</h4> 
+                    {{ form.query(size=50) }}
+                    <p>(Optional) Enter second term to compare against.</p>
+                    {{ form.opQuery(size=50 )}}
+                    <!-- </p> -->
                     <p>
-                        Enter anything: (e.g #MHacks V)<br>
-                        <input id="query" name="query" size="80" type="text" value="">
+                        <!-- <input id="query" name="query" size="80" type="text" value=""> -->
+                        <input type="submit" value="Submit" class="btn hover">
                     </p>
-                <p><input type="submit" value="Submit" class="btn hover"></p>
-
-
                
             </div> <!-- #main -->
         </div> <!-- #main-container -->
@@ -179,13 +178,18 @@
   // Getting the company name, the day and the rating for that day
   //Also getting number of tweets that data was based on
   var companydata={{ data }};
-  var companydata2={{ data2 }};
+  
   // var second = false;
   // var second = !(data2 == null)
   // document.write(companyda;ta);
     // Format= ["Company Name","Date",Sentiment Rating, #of Tweets];
     //Assuming that I am getting an array of company data with the index differing with different day Data, but the company name is the same every time
  </script>
+ {% if data2 %}
+ <script>
+ var companydata2={{ data2 }};
+ </script>
+ {% endif %}
 </head>
     <script type="text/javascript">
       google.setOnLoadCallback(drawChart);
@@ -224,11 +228,9 @@
         var chart = new google.visualization.LineChart(document.getElementById('output_chart'));
         chart.draw(data, options);
       }
-      console.log("HERE.1.1");
     </script>
 
     <script type="text/javascript">
-    console.log("HERE...");
       google.setOnLoadCallback(drawChart);
        var subdata2 =[];
        var subdata3 =[];
@@ -236,51 +238,20 @@
     var ratingdata2 =[];
     var ratingdata3 =[];
     
-    console.log("HERE");
     for(i=0;i<=companydata.length-1;i++){
       subdata2=companydata[i];
       subdata3=companydata2[i]; //subdata now takes the form of one element from the array companydata
       timedata2.push(subdata2[0]); //Inserts first element from companydata[i], which would be the time index
-      // console.log(timedata2[0]);
       ratingdata2.push(subdata2[1]);
-      ratingdata3.push(subdata3[1]); //Inserts second element from companydata[i], which would be the twitter sentiment rating
-      // amountoftweets.push(subdata[2]); //Inserts third element from companydata, which would be the amount of tweets
+      ratingdata3.push(subdata3[1]); 
     }
-    // console.log("timedata2: " + timedata2.length);
-    // console.log("ratingdata2: " + ratingdata2.length);
-    // console.log("ratingdata3: " + ratingdata3.length);
-    // console.log("HERE?!");
-      // function drawChart() {
-        a
-          // console.log(array);
-        
-        // array.push([0,0,15]);
-        // array.push([10,15,0]);
-        // array.push(timedata2[0], ratingdata2[0], ratingdata3[0]);
-        // var data = google.visualization.arrayToDataTable(array);
-        
-  //       var startArray2 = [['Time', 'Rating', 'Rating2']];
-  //       for(i=0;i<companydata.length;i++) {
-  //           startArray2.push([timedata2[i], ratingdata2[i], ratingdata3[i]]);
-  //       }
-  // var data2 = google.visualization.arrayToDataTable(startArray2);
       function drawChart() {
         arr = [['Time', '{{ q }}', '{{ q2 }}']];
-        // console.log("HEELLOOOO");
         // data.push([timedata2[0], ratingdata2[0], ratingdata3[0]]);
         for(i=0;i<timedata2.length-1;i++) {
           arr.push([timedata2[i], ratingdata2[i], ratingdata3[i]]);
         }
         var data = google.visualization.arrayToDataTable(arr);
-        //   ['Time', "{{ q }}" + ' Rating', '# of tweets'],
-        //   ['January 12',  -22, 20],
-        //   ['January 13',  -12, 30],
-        //   ['January 14',  4, 40],
-        //   ['January 15',  -5, 50],
-        //   ['January 16',  31, 60],
-        //   ['January 17',  56, 60],
-        //   ['January 18',  40, 40]
-        // ]);    
         var options2 = {
          // title: 'Company Performance',
           //hAxis.title: 'Time',
