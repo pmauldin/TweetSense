@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- <link rel="stylesheet" href="normalize.min.css"> -->
+        <!-- <link rel="stylesheet" href="main.css"> -->
+        <link href="{{ url_for('static', filename='css/normalize.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <style>
+        .heading{color:#C58917;}
+        .ultimate-wrapper{background-color:#FDD017;}
+        .bluecolor{background-color:#C1CFE8;}
+        .darkblue{background-color:#1C68EB}
+        .blurcolor{color:#588DE8; line-height: 1.5;}
+        .lowertab{border:0; line-height: 1.5;}
+        .upperborder{margin: 15px;
+                      padding: 25px;
+                      color: #C58917;
+                        }
+		.maintextstyle{margin: 15px;
+                      padding: 25px;
+                      color: #772200;
+					  font-family: "Georgia";
+                        }
+        .boldlygo{
+            font-weight: bold;
+        }		
+        /*.first-article{background-color:#966F33}*/
+        @media screen and (max-width: 900px) {
+                h1 {
+                    line-height: 35px;
+                }
+            }
+        @media screen and (max-width: 600px) {
+                h1 {
+                    font-size: 25px;
+                }
+            }    
+        @media screen and (max-width: 700px) {
+                title {
+                    padding-left: 35px;
+                }
+            }
+        @media screen and (max-width: 500px) {
+                li,a {
+                    padding: none;
+                    border: none;
+                    margin: none;
+                }
+            }                            
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+       <!--___________________NavBar Menu_____________________ -->
+        <div class="header-container bluecolor lowertab">
+            <header class="wrapper clearfix">
+                <h1 class="title blurcolor">TweetSense140</h1>
+                <nav class="bluecolor">
+                    <ul>
+                        <li><a href="#" class="bluecolor">Home</a></li>
+                        <li><a href="#" class="bluecolor">Random Graph</a></li>
+                        <li><a href="#" class="bluecolor">About us</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        <!-- ______________Product Description___________________ -->
+    <div class="ultimate-wrapper">    
+        <div class="first-article">
+            <article> 
+                <header>
+                        <h1 class="heading upperborder"> Uncommon Sense: Batman v. Superman </h1>
+                        <p class="maintextstyle"> Finally, we can <b>settle</b> once and for all these <b>age-old questions</b>: <br>
+						<b>Hacks</b> or <b>PennApps</b>? <br>
+						<b>Batman</b> or <b>Superman</b>? <br>
+						<b>Apples</b> or <b>oranges</b>? <br>
+						<b>NASDAQ: AAPL</b> or <b>NASDAQ: GOOG</b>? <br>
+						<b>Google</b> or <b>Bin</b>--- wait. scratch that last one. <br>
+						<br>
+						Behold! <b><i>TweetSense</i></b> instantly reports on your favorite popularity contest:
+						How popular things were, are, and <i>will be</i>.
+						All based on our in-house semantic analysis of relevant tweets, presented beautifully in digestible graphs.</p>
+                </header>
+				<header>
+                        <h1 class="heading upperborder"> Behind The Scenes </h1>
+                        <p class="maintextstyle"> We're proudest of our semantic analysis and locally-weighted linear regression, written from scratch. It's amazing how natural the resulting extrapolations into the future are! They reflect true changes of heart: just see for yourself how our results reflect the Dallas Cowboys' recent defeat INSERT GRAPH! <br><br>
+						
+						See for yourself how our popularity predictions, say of the term "MHacks", compare to reality! Hint: they're pretty accurate. INSERT GRAPH!
+
+						To bring the power of this core mathematical engine to <i>everyone's fingertips</i>, we wrapped it all in BLAH BLAH BLAH
+
+						We mined our source data from Twitter API and Bloomberg's financial data service BLAH BLAH BLAH
+						We used Heroku as host, Python was our main language, but BLAH BLAH BLAH.
+						MENTION ALCHEMY API 
+                </header>
+				<header>
+                        <h1 class="heading upperborder"> The Team </h1>
+                        <p class="maintextstyle"> <b><i>TweetSense</i></b> was lovingly hacked together by <br>
+						Peter M, Hoon L, William W, Samuel T, Vanessa C, <br>
+						the WafflesAtOne Team.
+                </header>
+            </article>    
+        </div>
+
+
+        <!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>
