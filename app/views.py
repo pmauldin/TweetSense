@@ -54,3 +54,19 @@ def results():
                            title='Results',
                            q=query,
                            data=dataList)
+
+@app.route('/finance')
+def finance():
+  global query
+  global d
+  dataList = []
+  return render_template('finance.html',
+                           title='Results',
+                           q=query,
+                           data=dataList)
+
+
+
+
+
+
