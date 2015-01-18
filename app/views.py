@@ -24,7 +24,7 @@ def index():
     form = LoginForm()
     if form.validate_on_submit():
         # print "###################"
-        count = 200
+        count = 30
 
         query = form.query.data.replace('#','').strip()
         query2 = form.opQuery.data.replace('#','').strip()
