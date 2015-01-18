@@ -1,0 +1,3 @@
+Currently, the NASDAQ web site publicly provides CSV files containing bulk listings -- it is broken up by first letter.
+
+http://www.nasdaq.com/screening/companies-by-name.aspx?letter=A&render=download
