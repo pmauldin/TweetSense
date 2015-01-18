@@ -25,9 +25,9 @@ for pw in POSITIVES: scores[pw] = +1.0/len(pw)**0.5
 for nw in NEGATIVES: scores[nw] = -1.0/len(nw)**0.5
 
 multipliers = dict([])
-for nm in NEGATORS:     multipliers[nm] = -1.00#/len(nm)**0.5
-for qm in QUALIFIERS:   multipliers[qm] = +0.66#/len(nm)**0.5  
-for im in INTENSIFIERS: multipliers[im] = +2.00#/len(im)**0.5
+for nm in NEGATORS:     multipliers[nm] = -1.00
+for qm in QUALIFIERS:   multipliers[qm] = +0.33
+for im in INTENSIFIERS: multipliers[im] = +1.66
 
    
    
@@ -37,22 +37,22 @@ def positivity(tweet): ## todo: target_word??
    score = 0.0
    multiplier = 1.0
    for word in tweet.split():
-      print(score, multiplier)
+      #print(score, multiplier)
       if word in multipliers.keys():
-        multiplier = multiplier*(multipliers[word]-1.0) + 1.0 ## multiplier scales new multiplier relative to 1
+         multiplier = multiplier*(multipliers[word]-1.0) + 1.0 ## multiplier scales new multiplier relative to 1
       elif word in scores.keys():
-        score += multiplier * scores[word] ## multiplier scales word relative to 0
-        multiplier = 0.5*multiplier + 0.5 ## decay very fast toward 1.
-   print(score, multiplier)
+         score += multiplier * scores[word] ## multiplier scales word relative to 0
+         multiplier = 0.5*multiplier + 0.5 ## decay very fast toward 1.
+   #print(score, multiplier)
    return score
 
 
 '''
 test_tweets = ['rainbow',
-               'many rainbow',
-               'not rainbow',
-               'not many rainbow',
-               'few rainbow']
+              'many rainbow',
+              'not rainbow',
+              'not many rainbow',
+              'few rainbow']
 for tweet in test_tweets:
    print(tweet, ' \t', positivity(tweet))
 '''
