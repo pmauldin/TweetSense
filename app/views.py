@@ -110,3 +110,7 @@ def random():
 
   return render_template('random.html',
                           form=form)
+
+@app.route('/hof')
+def hof():
+  return render_template('hof.html')
