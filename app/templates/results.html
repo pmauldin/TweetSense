@@ -39,7 +39,7 @@
         <style>
         .heading{color:#C58917;}
         .ultimate-wrapper{background-color:#FDD017;}
-        .bluecolor{background-color:#C1CFE8;}
+        .bluecolor{width: inherit; background-color:#C1CFE8;}
         .darkblue{background-color:#1C68EB}
         .blurcolor{color:#588DE8; line-height: 1.5;}
         .lowertab{border:0; line-height: 1.5;}
@@ -216,7 +216,7 @@
           ['January 18',  40, 40]
         ]);   */ 
         var options = {
-          hAxis: {title: 'Time (in days)'},
+          hAxis: {title: 'Days from Now'},
           vAxis: {title: 'Good                     Bad'},
           curveType: 'function',
           legend: { position: 'bottom' }
@@ -249,7 +249,7 @@
         }
         var data = google.visualization.arrayToDataTable(arr);
         var options2 = {
-          hAxis: {title: 'Time (in days)'},
+          hAxis: {title: 'Days from Now'},
           vAxis: {title: 'Emotional Connotation'},
           curveType: 'function',
           legend: { position: 'bottom' }
