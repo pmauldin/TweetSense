@@ -9,16 +9,19 @@ All based on our in-house semantic analysis of relevant tweets,
 presented beautifully in digestible graphs.
 
 <Batman v. Superman>
+<Link: proactivity v procrastination>
 
 BEHIND THE SCENES
 We're proudest of our semantic analysis and locally-weighted linear regression, written from scratch.
-It's amazing how natural the resulting extrapolations into the future are!
-Just see for yourself <Link: proactivity v procrastination>
-<Cowboys graph>
+It's amazing how natural the resulting extrapolations into the future are! They reflect true changes of heart:
+just see for yourself how our results reflect the Dallas Cowboys' recent defeat <Cowboys graph>!
+See for yourself howpopularity, say of the term "MHacks", is accurately _predicted_!: <MHacks Time series>
 
-Around this core mathematical engine, we wove Twitter API as a data source, Heroku as host, ... .
-Python was our main language, but.
-We also integrated Bloomberg's financial data service to even better inform stock comparisons.
+To bring this core mathematical engine to _everyone's fingertips_, we 
+
+We mined our source data from Twitter API and Bloomberg's financial data service
+Heroku as host, Python was our main language, but.
 
 TEAM MEMBERS
-Lovingly hacked together by Peter M, Hoon L, William W, Samuel T, Vanessa C
+Lovingly hacked together by Peter M, Hoon L, William W, Samuel T, Vanessa C,
+the WafflesAtOne Team.
