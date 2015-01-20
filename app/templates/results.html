@@ -7,12 +7,8 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        {% if q2 %}
-        <title>{{ q }} VS {{ q2 }}</title>
-        {% else %}
-        <title>{{ q }}</title>
-        {% endif %}
-        
+
+        <title>Results - TweetSense</title>        
 
         <link href="{{ url_for('static', filename='css/normalize.min.css') }}" rel="stylesheet">
         <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
@@ -32,10 +28,6 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
-
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <style>
         .heading{color:#C58917;}
         .ultimate-wrapper{background-color:#FDD017;}
@@ -105,19 +97,21 @@
 
 
 
-        <!-- ______________Options___________________ -->
+        <!-- ______________DISPLAY GRAPHS___________________ -->
     <div class="ultimate-wrapper"> 
       <CENTER>
-              {% if data2 %}
-              <script>
-                second = true;
-                var companydata2 = [{{ data2 }}];
-              </script>
-              <div class="heading upperborder" style="text-align: center"><h1>{{ q }} VS {{ q2 }}</h1></div>
-              <div class="chart" id="output_chart2" style="align: center; width: 900px; height: 500px"></div>   
-              {% else %}
+              {% if data %}
               <div class="heading upperborder" style="text-align: center"><h1>{{ q }}</h1></div>
               <div class="chart" id='output_chart' style="align: center; width: 900px; height: 500px"></div> 
+              {% elif data2 %}
+              <script>
+                second = true;
+                // var companydata2 = [{{ data2 }}];
+              </script>
+              <div class="heading upperborder" style="text-align: center"><h1>{{ q }} VS {{ q2 }}</h1></div>
+              <div class="chart" id="output_chart2" style="align: center; width: 900px; height: 500px"></div>  
+              {% else %}
+              <h3>Please supply at least one (1) search term.
               {% endif %}
       </CENTER>
  
@@ -152,9 +146,9 @@
         </div>
 </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('EERRROOORR')</script>
 
-        <script src="js/main.js"></script>
+        <script src="{{url_for('static', filename='js/main.js')}}"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -171,7 +165,8 @@
     //$.get("http://feeling-tweety.herokuapp.com/",data,function(data,status,xhr),json)
   // Getting the company name, the day and the rating for that day
   //Also getting number of tweets that data was based on
-  var companydata={{ data }};
+  var companydata = {{ data }};
+
   
   // var second = false;
   // var second = !(data2 == null)
@@ -181,7 +176,7 @@
  </script>
  {% if data2 %}
  <script>
- var companydata2={{ data2 }};
+  var companydata2={{ data2 }};
  </script>
  {% endif %}
 </head>
@@ -200,6 +195,8 @@
     }
       function drawChart() {
         var startArray = [['Time', '{{ q }}']];
+        // console.log("!!");
+        // timedata[240] = 0.0 + " (today)";
         for(i=0;i<companydata.length;i++) {
             startArray.push([timedata[i], ratingdata[i]]);
         }
@@ -217,7 +214,7 @@
         ]);   */ 
         var options = {
           hAxis: {title: 'Days from Now'},
-          vAxis: {title: 'Good                     Bad'},
+          vAxis: {title: 'Emotional Connotation'},
           curveType: 'function',
           legend: { position: 'bottom' }
         };

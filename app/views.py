@@ -51,12 +51,13 @@ def index():
 
 @app.route('/results', methods=['GET', 'POST'])
 def results():
-  # if d ==  [] or d == [[]]:
-    # return redirect('/index')
   global query
   global query2
   global d
   global d2
+  if d ==  [] or d == [[]] or d is None:
+    return redirect('/index')
+
   dataList = listtups_to_listlists(d)
 
   form = LoginForm()
