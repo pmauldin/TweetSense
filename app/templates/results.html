@@ -100,18 +100,18 @@
         <!-- ______________DISPLAY GRAPHS___________________ -->
     <div class="ultimate-wrapper"> 
       <CENTER>
-              {% if data %}
-              <div class="heading upperborder" style="text-align: center"><h1>{{ q }}</h1></div>
-              <div class="chart" id='output_chart' style="align: center; width: 900px; height: 500px"></div> 
-              {% elif data2 %}
+              {% if data2 %}
               <script>
                 second = true;
                 // var companydata2 = [{{ data2 }}];
               </script>
               <div class="heading upperborder" style="text-align: center"><h1>{{ q }} VS {{ q2 }}</h1></div>
-              <div class="chart" id="output_chart2" style="align: center; width: 900px; height: 500px"></div>  
+              <div class="chart" id="output_chart2" style="align: center; width: 900px; height: 500px"></div> 
+              {% elif data %}
+              <div class="heading upperborder" style="text-align: center"><h1>{{ q }}</h1></div>
+              <div class="chart" id='output_chart' style="align: center; width: 900px; height: 500px"></div>                
               {% else %}
-              <h3>Please supply at least one (1) search term.
+              <h3>Please supply at least one (1) search term.<h3>
               {% endif %}
       </CENTER>
  

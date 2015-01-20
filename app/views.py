@@ -59,6 +59,8 @@ def results():
     return redirect('/index')
 
   dataList = listtups_to_listlists(d)
+  d = None
+  print "Query 1: %s" % query
 
   form = LoginForm()
   if form.validate_on_submit():
@@ -67,11 +69,10 @@ def results():
 
       return redirect('/results')
 
-  # print dataList
-  # print query
   if not query2 == "":
-    # print "Second value"
+    print "Query 2: %s" % query2
     dataList2 = listtups_to_listlists(d2)
+    d2 = None
     return render_template('results.html',
                            title='Results',
                            q=query,
@@ -96,7 +97,6 @@ def random():
 
   form = RandomForm()
   if form.validate_on_submit():
-    print "??"
     if request.form['btn'] == 'Randomize':
       t1=get_random_topic().split(' ', 1)[0]
       while not Twitter().checkTerm(t1):
@@ -105,7 +105,7 @@ def random():
       t2=get_random_topic().split(' ', 1)[0]
       while not Twitter().checkTerm(t2):
         t2=get_random_topic().split(' ', 1)[0]
-      print "t1: %s\nt2: %s" % (t1, t2)
+      # print "t1: %s\nt2: %s" % (t1, t2)
       form.query.data=t1
       form.opQuery.data=t2
     else:
