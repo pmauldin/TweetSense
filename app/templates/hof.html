@@ -30,12 +30,14 @@
         .boldlygo{
             font-weight: bold;
         }      
-
         .pic {
-        	width: 600px;
-        	height: 450px; 
-        	margin-bottom: 2em;
-        }          
+        	width: 570px;
+        	height: 420px; 
+            margin: 0 auto;
+        } 
+        .centerheading{
+            text-align: center;
+        }         
         /*.first-article{background-color:#966F33}*/
         @media screen and (max-width: 900px) {
                 h1 {
@@ -85,37 +87,45 @@
         <div class="first-article">
             <article> 
                 <header>
-                        <CENTER><h1 class="heading upperborder" >A Showcase for the best graphs produced by TweetSense</p></CENTER>
+                    <h1 class="heading upperborder centerheading" >A Showcase for the best graphs produced by TweetSense</h1>
                 </header>
             </article>    
         </div>
-        <CENTER>
+        <div class="centerheading">
         <div>
         	<h2>First ever trends graphed by the TweetSense team:</h2>
-            <img src="{{url_for('static', filename='pennaps.jpg')}}" class="pic" style="padding-right: 10px">
-            <img src="{{url_for('static', filename='mhacks.png')}}" class="pic" style="padding-left: 10px">
+            <img src="{{url_for('static', filename='pennaps.jpg')}}" class="pic" style="padding-right: 15px 
+            margin-bottom: 2em;">
+            <img src="{{url_for('static', filename='mhacks.png')}}" class="pic" style="padding-left: 15px 
+            margin-bottom: 2em;">
         </div>
         <br>
         <h2>Staff picks:</h2>
         
         <div>
-        	<img src="{{url_for('static', filename='batmanvssuperman.png')}}" class="pic" style="padding-right: 10px">
-        	<img src="{{url_for('static', filename='dogsvscats.png')}}" class="pic" style="padding-left: 10px">
+        	<img src="{{url_for('static', filename='batmanvssuperman.png')}}" class="pic" style="padding-right: 15px 
+            margin-bottom: 2em;">
+        	<img src="{{url_for('static', filename='dogsvscats.png')}}" class="pic" style="padding-left: 15px 
+            margin-bottom: 2em;">
         </div>
 
         <div>
-        	<img src="{{url_for('static', filename='applevsgoogle.png')}}" class="pic" style="padding-right: 10px">
-        	<img src="{{url_for('static', filename='mhacksvspennapps.png')}}" class="pic" style="padding-left: 10px">
+        	<img src="{{url_for('static', filename='applevsgoogle.png')}}" class="pic" style="padding-right: 15px 
+            margin-bottom: 2em;">
+        	<img src="{{url_for('static', filename='mhacksvspennapps.png')}}" class="pic" style="padding-left: 15px 
+            margin-bottom: 2em;">
         </div>
         <!-- <a href="#section1" class="btn hover">Go to section 1</a> -->
+             <h1 class="heading upperborder centerheading" >Have a graph you found interesting?</h1>
+             <p class="centerheading">Send a screenshot with the date and time to <a href="mailto:tweetsense140@gmail.com">tweetsense140@gmail.com</a></p>
 
         <h1>If you'd like to have your graphs featured, send an email to <a href="mailto:tweetsense140@gmail.com">tweetsense140@gmail.com</a> with a screenshot (and optionally, your name).
 
 
-        </CENTER>
+        </div>
          <div class="footer-container bluecolor"> 
             <footer class="wrapper">
-                <h3><a href="https://www.facebook.com/tweetsense">Facebook Link</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/pmauldin/Waffles-at-one">GitHub Repo</a></h3>
+                <h3><a href="https://www.facebook.com/tweetsense">Facebook</a><pre>&#9;&#9;</pre><a href="https://github.com/pmauldin/Waffles-at-one">GitHub Repo</a></h3>
             </footer>
         </div>
 </div>
@@ -124,14 +134,16 @@
 
         <script src="{{url_for('static', filename='js/main.js')}}"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!-- Google Analytics code -->
         <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-58718413-1', 'auto');
+            ga('send', 'pageview');
+
+          </script>
     </body>
 </html>
