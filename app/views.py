@@ -18,7 +18,7 @@ def setGraphs(form):
   global d
   global d2
 
-  count = 80
+  count = 30
 
   query = str(form.query.data.replace('#','').strip())
   query2 = str(form.opQuery.data.replace('#','').strip())
