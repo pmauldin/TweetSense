@@ -8,6 +8,8 @@ from RandomTopic import get_random_topic
 
 d = [[]]
 d2 = [[]]
+query = ""
+query2 = ""
 
 def listtups_to_listlists(lt):
   return [[x, y] for (x, y) in lt]
