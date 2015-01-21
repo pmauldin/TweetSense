@@ -32,19 +32,18 @@ for im in INTENSIFIERS: multipliers[im] = +1.66
    
    
 def positivity(tweet): ## todo: target_word??
-   tweet = ' ' + tweet.lower().replace('.', ' ').replace('  ', ' ') + ' '
+
+	tweet = ' ' + tweet.lower().replace('.', ' ').replace('  ', ' ') + ' '
    
-   score = 0.0
-   multiplier = 1.0
-   for word in tweet.split():
-      #print(score, multiplier)
-      if word in multipliers.keys():
-         multiplier = multiplier*(multipliers[word]-1.0) + 1.0 ## multiplier scales new multiplier relative to 1
-      elif word in scores.keys():
-         score += multiplier * scores[word] ## multiplier scales word relative to 0
-         multiplier = 0.5*multiplier + 0.5 ## decay very fast toward 1.
-   #print(score, multiplier)
-   return score
+	score = 0.0
+	multiplier = 1.0
+	for word in tweet.split():
+		if word in multipliers.keys():
+			multiplier = multiplier*(multipliers[word]-1.0) + 1.0 ## multiplier scales new multiplier relative to 1
+		elif word in scores.keys():
+			score += multiplier * scores[word] ## multiplier scales word relative to 0
+			multiplier = 0.5*multiplier + 0.5 ## decay very fast toward 1.
+	return score
 
 
 

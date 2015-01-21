@@ -7,35 +7,36 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        {% if q2 %}
-        <title>{{ q }} VS {{ q2 }}</title>
-        {% else %}
-        <title>{{ q }}</title>
-        {% endif %}
-        
+
+        <title>Results - TweetSense</title>
+
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-192x192.png')}}" sizes="192x192">
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-160x160.png')}}" sizes="160x160">
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-96x96.png')}}" sizes="96x96">
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-16x16.png')}}" sizes="16x16">
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-32x32.png')}}" sizes="32x32">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileImage" content="{{url_for('static', filename='icons/mstile-144x144.png')}}">
+        <meta name="application-name" content="TweetSense">  
 
         <link href="{{ url_for('static', filename='css/normalize.min.css') }}" rel="stylesheet">
         <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
 
         <script src="{{url_for('static', filename='js/vendor/modernizr-2.6.2-respond-1.1.0.min.js')}}"></script>
          <!-- Import Google Line Chart -->
-   <script type="text/javascript"
-          src="https://www.google.com/jsapi?autoload={
-            'modules':[{
-              'name':'visualization',
-              'version':'1',
-              'packages':['corechart']
-            }]
-          }"></script>
+       <script type="text/javascript"
+              src="https://www.google.com/jsapi?autoload={
+                'modules':[{
+                  'name':'visualization',
+                  'version':'1',
+                  'packages':['corechart']
+                }]
+              }"></script>
  
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
-
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <style>
         .heading{color:#C58917;}
         .ultimate-wrapper{background-color:#FDD017;}
@@ -105,19 +106,21 @@
 
 
 
-        <!-- ______________Options___________________ -->
+        <!-- ______________DISPLAY GRAPHS___________________ -->
     <div class="ultimate-wrapper"> 
       <CENTER>
               {% if data2 %}
               <script>
                 second = true;
-                var companydata2 = [{{ data2 }}];
+                // var companydata2 = [{{ data2 }}];
               </script>
               <div class="heading upperborder" style="text-align: center"><h1>{{ q }} VS {{ q2 }}</h1></div>
-              <div class="chart" id="output_chart2" style="align: center; width: 900px; height: 500px"></div>   
-              {% else %}
+              <div class="chart" id="output_chart2" style="align: center; width: 900px; height: 500px"></div> 
+              {% elif data %}
               <div class="heading upperborder" style="text-align: center"><h1>{{ q }}</h1></div>
-              <div class="chart" id='output_chart' style="align: center; width: 900px; height: 500px"></div> 
+              <div class="chart" id='output_chart' style="align: center; width: 900px; height: 500px"></div>                
+              {% else %}
+              <h3>Please supply at least one (1) search term.<h3>
               {% endif %}
       </CENTER>
  
@@ -132,9 +135,9 @@
                <div style="display:none;"><input id="csrf_token" name="csrf_token" type="hidden" value="1421521855##a1af18a55da3a2f50514a97306473557ba90b703"></div>         
                     <!-- <p> -->
                         <!-- Please enter your search query:<br> -->
-                    <h4>Enter term to analyze: (e.g #MHacks)</h4> 
+                    <h4>Enter term to analyze: (e.g #MHacks) </h4><div id="redoID"></div>
                     {{ form.query(size=50) }}
-                    <p>(Optional) Enter second term to compare against.</p>
+                    <p>(Optional) Enter second term to compare against. </p><div id="redo2ID"></div>
                     {{ form.opQuery(size=50 )}}
                     <!-- </p> -->
                     <p>
@@ -152,9 +155,9 @@
         </div>
 </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('EERRROOORR')</script>
 
-        <script src="js/main.js"></script>
+        <script src="{{url_for('static', filename='js/main.js')}}"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -171,7 +174,8 @@
     //$.get("http://feeling-tweety.herokuapp.com/",data,function(data,status,xhr),json)
   // Getting the company name, the day and the rating for that day
   //Also getting number of tweets that data was based on
-  var companydata={{ data }};
+  var companydata = {{ data }};
+
   
   // var second = false;
   // var second = !(data2 == null)
@@ -181,7 +185,7 @@
  </script>
  {% if data2 %}
  <script>
- var companydata2={{ data2 }};
+  var companydata2={{ data2 }};
  </script>
  {% endif %}
 </head>
@@ -200,6 +204,8 @@
     }
       function drawChart() {
         var startArray = [['Time', '{{ q }}']];
+        // console.log("!!");
+        // timedata[240] = 0.0 + " (today)";
         for(i=0;i<companydata.length;i++) {
             startArray.push([timedata[i], ratingdata[i]]);
         }
@@ -217,7 +223,7 @@
         ]);   */ 
         var options = {
           hAxis: {title: 'Days from Now'},
-          vAxis: {title: 'Good                     Bad'},
+          vAxis: {title: 'Emotional Connotation'},
           curveType: 'function',
           legend: { position: 'bottom' }
         };
@@ -257,6 +263,27 @@
         var chart2 = new google.visualization.LineChart(document.getElementById('output_chart2'));
         chart2.draw(data, options2);
       }
+    </script>
+
+    <script>
+      var redo = "{{ q1Invalid }}";
+      var redoText = "";
+      if(redo === "True") {
+          redoText = "Not Enough Tweets about that query to perform meaningful analysis. Please try another."
+      }
+      var displayRedo = document.getElementById("redoID");
+      displayRedo.innerHTML = redoText;
+      displayRedo.style.color="#FF0000"
+
+      var redo2 = "{{ q2Invalid }}";
+      var redo2Text = "";
+      if(redo2 === "True") {
+          redo2Text = "Not Enough Tweets about that query to perform meaningful analysis. Please try another."
+      }
+      console.log("Redo2: " + redo2 + ", redo2Text: " + redo2Text);
+      var display2Redo = document.getElementById("redo2ID");
+      display2Redo.innerHTML = redo2Text;
+      display2Redo.style.color="#FF0000"
     </script>
 
 <!-- Google Analytics code -->

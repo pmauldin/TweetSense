@@ -7,11 +7,17 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>TweetSense - Data Analysis</title>
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-192x192.png')}}" sizes="192x192">
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-160x160.png')}}" sizes="160x160">
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-96x96.png')}}" sizes="96x96">
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-16x16.png')}}" sizes="16x16">
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-32x32.png')}}" sizes="32x32">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileImage" content="{{url_for('static', filename='icons/mstile-144x144.png')}}">
+        <meta name="application-name" content="TweetSense">  
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- <link rel="stylesheet" href="normalize.min.css"> -->
-        <!-- <link rel="stylesheet" href="main.css"> -->
         <link href="{{ url_for('static', filename='css/normalize.min.css') }}" rel="stylesheet">
         <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
 
@@ -55,6 +61,7 @@
             }                            
         </style>
     </head>
+    
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -103,9 +110,9 @@
                <div style="display:none;"><input id="csrf_token" name="csrf_token" type="hidden" value="1421521855##a1af18a55da3a2f50514a97306473557ba90b703"></div>         
                     <!-- <p> -->
                         <!-- Please enter your search query:<br> -->
-                    <h4>Enter term to analyze: (e.g #MHacks)</h4> 
+                    <h4>Enter term to analyze: (e.g #MHacks) </h4><div id="redoID"></div>
                     {{ form.query(size=50) }}
-                    <p>(Optional) Enter second term to compare against.</p>
+                    <p>(Optional) Enter second term to compare against. </p><div id="redo2ID"></div>
                     {{ form.opQuery(size=50 )}}
                     <!-- </p> -->
                     <p>
@@ -123,7 +130,28 @@
         </div>
 </div>
         <!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+        <script>window.jQuery</script>
+
+        <script>
+            var redo = "{{ q1Invalid }}";
+            var redoText = "";
+            if(redo === "True") {
+                redoText = "Not Enough Tweets about that query to perform meaningful analysis. Please try another."
+            }
+            var displayRedo = document.getElementById("redoID");
+            displayRedo.innerHTML = redoText;
+            displayRedo.style.color="#FF0000"
+
+            var redo2 = "{{ q2Invalid }}";
+            var redo2Text = "";
+            if(redo2 === "True") {
+                redo2Text = "Not Enough Tweets about that query to perform meaningful analysis. Please try another."
+            }
+            console.log("Redo2: " + redo2 + ", redo2Text: " + redo2Text);
+            var display2Redo = document.getElementById("redo2ID");
+            display2Redo.innerHTML = redo2Text;
+            display2Redo.style.color="#FF0000"
+        </script>
 
         <script src="{{url_for('static', filename='js/main.js')}}"></script>
 

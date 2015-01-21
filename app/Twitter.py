@@ -39,64 +39,18 @@ class Twitter:
 			for i in data:
 				t = time.strptime(str(i.created_at), "%Y-%m-%d %H:%M:%S")
 				epochToTweet = calendar.timegm(t)
-				# tweets = ''
 				text = i.text
 				daysPast = float(epochToTweet - epochToNow) / 86400
 				if text[:2] == 'u\'':
 					text = i.text.encode('utf-8')
 				tweets.append((daysPast, text))
-				# print "Appending to tweets %s" + text
-			# res = self._alchemy_api.sentiment("text", tweets)
-			# data_list.append((-days, float(res['docSentiment']['score'])))
 		return tweets
 
 	def checkTerm(self, q):
-		return len(self._twitter_api.search(q, count=6)) >= 6
-
-
-	# def getTweets(self, q, cnt):
-	# 	data = self._twitter_api.search(q, count=cnt, result_type='popular')
-	# 	tweets = []
-	# 	epochToNow = int(time.time())
-	# 	# print epochToNow
-	# 	for i in data:
-	# 		t = time.strptime(str(i.created_at), "%Y-%m-%d %H:%M:%S")
-	# 		epochToTweet = calendar.timegm(t)
-	# 		# print epochToTweet
-	# 		daysPast = float(epochToTweet - epochToNow) / 86400
-	# 		print daysPast
-	# 		# print daysPast
-	# 		text = i.text
-	# 		if text[:2] == 'u\'':
-	# 			text = i.text.encode('utf-8')
-	# 		tweets.append((daysPast, text))
-
-	# 	return tweets
-
-	# def getScore(self, chars):
-		# response = self._alchemy_api.sentiment('text', chars)
-		# return response
-
-	# # returns lists for words
-	# def getTweets(self, q, cnt=100):	
-	# 	data = self._api.search(q, count=cnt)
-	# 	result = []
-	# 	for i in data:
-	# 		tweets = []
-	# 		stringSplit = i.text.replace('\n', ' ').split(' ')
-	# 		for j in stringSplit:
-
-	# 			if len(j) > 1:
-	# 				if j[0] == '@':
-	# 					pass
-	# 				elif j == 'RT':
-	# 					pass
-	# 				elif j[0:4] == 'http' or j[0:4] == 'HTTP':
-	# 					pass
-	# 				else:
-	# 					tweets.append(j)
-	# 		result.append(tweets)
-	# 	return result
+		try:
+			return len(self._twitter_api.search(q, count=6)) >= 6
+		except (e):
+			print False	
 
 # t = Twitter()
 
