@@ -57,10 +57,8 @@ def index():
   q2Invaled = False
   form = LoginForm()
   if form.validate_on_submit():
-      # print "###################"
       q1Invalid, q2Invaled = setGraphs(form)
-      # print "??"
-      print q1Invalid, q2Invaled
+      # print q1Invalid, q2Invaled
       if not q1Invalid and not q2Invaled:
         return redirect('/results')
   return render_template('index.html',
@@ -86,9 +84,11 @@ def results():
   if query ==  "" or query is None or quest.referrer is None:
     return redirect('/index')
   
+  q1Invalid = False
+  q2Invaled = False
   form = LoginForm()
   if form.validate_on_submit():
-      setGraphs(form)
+      q1Invalid, q2Invaled = setGraphs(form)
 
       return redirect('/results')
 
@@ -105,12 +105,16 @@ def results():
                            q2=query2,
                            data=dataList,
                            data2=dataList2,
+                           q1Invalid=q1Invalid,
+                           q2Invaled=q2Invalid,
                            form=form)
   d = None
   return render_template('results.html',
                            title='Results',
                            q=query,
                            data=dataList,
+                           q1Invalid=q1Invalid,
+                           q2Invaled=q2Invalid,
                            form=form)
 
 @app.route('/about')
@@ -121,6 +125,8 @@ def about():
 @app.route('/random', methods=['GET', 'POST'])
 def random():
 
+  q1Invalid = False
+  q2Invaled = False
   form = RandomForm()
   if form.validate_on_submit():
     if request.form['btn'] == 'Randomize':
@@ -136,12 +142,15 @@ def random():
       form.opQuery.data=t2
     else:
       if form.query != "" or form.opQuery != "":
-        setGraphs(form)
+        q1Invalid, q2Invaled = setGraphs(form)
         
-        return redirect('/results')
+        if not q1Invalid and not q2Invaled:
+          return redirect('/results')
 
   return render_template('random.html',
-                          form=form)
+                         q1Invalid=q1Invalid,
+                         q2Invalid=q2Invaled,
+                         form=form)
 
 @app.route('/hof')
 def hof():

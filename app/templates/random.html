@@ -100,9 +100,11 @@
                <div style="display:none;"><input id="csrf_token" name="csrf_token" type="hidden" value="1421521855##a1af18a55da3a2f50514a97306473557ba90b703"></div>         
                     <!-- <p> -->
                         <!-- Please enter your search query:<br> -->
+                    <div id="redoID"></div>
                     <div class="form-space">
                     {{ form.query(size=50) }}
                     </div>
+                    <div id="redo2ID"></div>
                     {{ form.opQuery(size=50 )}}
                     <!-- </p> -->
                     <p>
@@ -127,6 +129,27 @@
         <script>window.jQuery</script>
 
         <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+        <script>
+            var redo = "{{ q1Invalid }}";
+            var redoText = "";
+            if(redo === "True") {
+                redoText = "Not Enough Tweets about that query to perform meaningful analysis. Please try another."
+            }
+            var displayRedo = document.getElementById("redoID");
+            displayRedo.innerHTML = redoText;
+            displayRedo.style.color="#FF0000"
+
+            var redo2 = "{{ q2Invalid }}";
+            var redo2Text = "";
+            if(redo2 === "True") {
+                redo2Text = "Not Enough Tweets about that query to perform meaningful analysis. Please try another."
+            }
+            console.log("Redo2: " + redo2 + ", redo2Text: " + redo2Text);
+            var display2Redo = document.getElementById("redo2ID");
+            display2Redo.innerHTML = redo2Text;
+            display2Redo.style.color="#FF0000"
+        </script>
 
         <!-- Google Analytics code-->
         <script>
