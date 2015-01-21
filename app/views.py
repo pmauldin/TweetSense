@@ -81,14 +81,14 @@ def results():
   # print "d: ",d
   # print "d2: ",d2
   
-  if query ==  "" or query is None or quest.referrer is None:
+  if query ==  "" or query is None or request.referrer is None:
     return redirect('/index')
   
   q1Invalid = False
-  q2Invaled = False
+  q2Invalid = False
   form = LoginForm()
   if form.validate_on_submit():
-      q1Invalid, q2Invaled = setGraphs(form)
+      q1Invalid, q2Invalid = setGraphs(form)
 
       return redirect('/results')
 
@@ -106,7 +106,7 @@ def results():
                            data=dataList,
                            data2=dataList2,
                            q1Invalid=q1Invalid,
-                           q2Invaled=q2Invalid,
+                           q2Invalid=q2Invalid,
                            form=form)
   d = None
   return render_template('results.html',
@@ -114,7 +114,7 @@ def results():
                            q=query,
                            data=dataList,
                            q1Invalid=q1Invalid,
-                           q2Invaled=q2Invalid,
+                           q2Invalid=q2Invalid,
                            form=form)
 
 @app.route('/about')
