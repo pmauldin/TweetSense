@@ -47,7 +47,10 @@ class Twitter:
 		return tweets
 
 	def checkTerm(self, q):
-		return len(self._twitter_api.search(q, count=6)) >= 6
+		try:
+			return len(self._twitter_api.search(q, count=6)) >= 6
+		except (e):
+			print False	
 
 # t = Twitter()
 
