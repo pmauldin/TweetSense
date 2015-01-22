@@ -44,6 +44,10 @@
                 h1 {
                     line-height: 35px;
                 }
+            .pic {
+            width: 500px; 
+            height:380px;
+        }
             }
         @media screen and (max-width: 600px) {
                 h1 {
@@ -70,11 +74,6 @@
                     height:184px;
                 }                
             }
-        .pic {
-            width: 500px; 
-            height:380px;
-            margin: 0 auto;
-        }
 
         input[type="text"] 
         {
@@ -114,7 +113,7 @@
             </article>    
         </div>
 
-        <div>
+        <div class="centerheading">
             <img src="{{url_for('static', filename='pennaps.jpg')}}" class="pic" style=" margin-bottom: 0.5em;">
             <img src="{{url_for('static', filename='mhacks.png')}}"  class="pic" style=" margin-top: .2em; margin-bottom: 0.5em;">
         </div>
