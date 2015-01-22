@@ -35,7 +35,10 @@
                         }
         .boldlygo{
             font-weight: bold;
-        }                
+        } 
+        .centerheading{
+            text-align: center;
+        }               
         /*.first-article{background-color:#966F33}*/
         @media screen and (max-width: 900px) {
                 h1 {
@@ -51,6 +54,10 @@
                 title {
                     padding-left: 35px;
                 }
+                .pic{
+                    width:400px;
+                    height:295px;
+                }
             }
         @media screen and (max-width: 500px) {
                 li,a {
@@ -58,7 +65,16 @@
                     border: none;
                     margin: none;
                 }
-            }                            
+                .pic{
+                    width:250px;
+                    height:184px;
+                }                
+            }
+        .pic {
+            width: 500px; 
+            height:380px;
+            margin: 0 auto;
+        }                           
         </style>
     </head>
     
@@ -92,11 +108,9 @@
             </article>    
         </div>
 
-        <div>
-            <CENTER>
-            <img src="{{url_for('static', filename='pennaps.jpg')}}" style=" width: 500px; height:380px; margin-bottom: 0.5em;">
-            <img src="{{url_for('static', filename='mhacks.png')}}" style=" width: 500px; height:380px; margin-top: .2em; margin-bottom: 0.5em;">
-            </CENTER>
+        <div class="centerheading">
+            <img src="{{url_for('static', filename='pennaps.jpg')}}" style=" margin-bottom: 0.5em;">
+            <img src="{{url_for('static', filename='mhacks.png')}}" style=" margin-top: .2em; margin-bottom: 0.5em;">
         </div>
         <!-- <a href="#section1" class="btn hover">Go to section 1</a> -->
 
