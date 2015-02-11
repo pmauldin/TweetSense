@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>TweetSense - Data Analysis</title>
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-192x192.png')}}" sizes="192x192">
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-160x160.png')}}" sizes="160x160">
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-96x96.png')}}" sizes="96x96">
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-16x16.png')}}" sizes="16x16">
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='icons/favicon-32x32.png')}}" sizes="32x32">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileImage" content="{{url_for('static', filename='icons/mstile-144x144.png')}}">
+        <meta name="application-name" content="TweetSense">  
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="{{ url_for('static', filename='css/normalize.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+
+        <script src="{{url_for('static', filename='js/vendor/modernizr-2.6.2-respond-1.1.0.min.js')}}"></script>
+        <style>
+        .heading{color:#C58917;}
+        .ultimate-wrapper{background-color:#FDD017;}
+        .bluecolor{width: inherit; background-color:#C1CFE8;}
+        .darkblue{background-color:#1C68EB}
+        .blurcolor{color:#588DE8; line-height: 1.5;}
+        .lowertab{border:0; line-height: 1.5;}
+        .upperborder{margin: 15px;
+                      padding: 25px;
+                      color: #C58917;
+                        }
+        .boldlygo{
+            font-weight: bold;
+        } 
+        .centerheading{
+            text-align: center;
+        }               
+        /*.first-article{background-color:#966F33}*/
+        @media screen and (max-width: 900px) {
+                h1 {
+                    line-height: 35px;
+                }
+            .pic {
+            width: 500px; 
+            height:380px;
+        }
+            }
+        @media screen and (max-width: 600px) {
+                h1 {
+                    font-size: 25px;
+                }
+            }    
+        @media screen and (max-width: 700px) {
+                title {
+                    padding-left: 35px;
+                }
+                .pic{
+                    width:400px;
+                    height:295px;
+                }
+            }
+        @media screen and (max-width: 500px) {
+                li,a {
+                    padding: none;
+                    border: none;
+                    margin: none;
+                }
+                .pic{
+                    width:250px;
+                    height:184px;
+                }
+
+        input[type="text"] 
+        {
+            width: 200px;
+            border: 1px solid #CCC;
+        }                 
+            }
+                 
+        </style>
+    </head>
+    
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+       <!--___________________NavBar Menu_____________________ -->
+        <div class="header-container bluecolor lowertab">
+            <header class="wrapper clearfix">
+                <h1 class="title blurcolor">TweetSense140-Ordering service extension</h1>
+                <nav class="bluecolor">
+                    <ul>
+                        <li><a href="/" class="bluecolor">Home</a></li>
+                        <li><a href="/random" class="bluecolor">Random Graph</a></li>
+                        <li><a href="/about" class="bluecolor">About us</a></li>
+                        <li><a href="/hof" class="bluecolor">Hall of Fame</a></li>
+                        <li><a href="/pizza" class="bluecolor">Ordering Server</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        <!-- ______________Product Description___________________ -->
+    <div class="ultimate-wrapper">    
+        <div class="first-article">
+            <article> 
+                <header>
+                        <h1 class="heading upperborder">Finally, we can see who <a style="text-decoration: underline;">else</a> wants to order</h1>
+                        <p class="upperborder boldlygo">From a developer of Tweetsense140 to you is the ordering server. Come on here, write your username in and see who else wants to order. It's that simple!</p>
+                </header>
+            </article>    
+        </div>
+
+<!--         <div class="centerheading">
+            <img src="{{url_for('static', filename='pennaps.jpg')}}" class="pic" style=" margin-bottom: 0.5em;">
+            <img src="{{url_for('static', filename='mhacks.png')}}"  class="pic" style=" margin-top: .2em; margin-bottom: 0.5em;">
+        </div> -->
+        <!-- <a href="#section1" class="btn hover">Go to section 1</a> -->
+
+
+    <div class="main-container" name="section1">
+        <div class="main wrapper clearfix">
+
+            <h1>Type your name in (and the secret code if you have it)</h1>
+                <form action="" method="post" name="login">
+                    {{ form.hidden_tag() }} 
+               <div style="display:none;"><input id="csrf_token" name="csrf_token" type="hidden" value="1421521855##a1af18a55da3a2f50514a97306473557ba90b703"></div>         
+                    <!-- <p> -->
+                        <!-- The secret code is 1743alpha -->
+                    <h4>Enter your hall wing and room number separated by spaces like this: 1504 B 23</h4><div id="redoID"></div>
+                    {{ form.query(size=50) }}
+                    <p>(Optional) Enter the secret code</p><div id="redo2ID"></div>
+                    {{ form.opQuery(size=50 )}}
+                    <!-- </p> -->
+                    <p>
+                        <!-- <input id="query" name="query" size="80" type="text" value=""> -->
+                        <input type="submit" value="Submit" class="btn hover">
+                    </p>
+               
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+         <div class="footer-container bluecolor"> 
+            <footer class="wrapper">
+                <h3><a href="https://www.facebook.com/tweetsense">Facebook Link</a><pre>&#9;&#9;</pre><a href="https://github.com/pmauldin/Waffles-at-one">GitHub Repo</a></h3>
+            </footer>
+        </div>
+</div>
+        <!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+        <script>window.jQuery</script>
+
+        <script>
+            var redo = "{{ q1Invalid }}";
+            var redoText = "";
+            if(redo === "True") {
+                redoText = "Not Enough Tweets about that query to perform meaningful analysis. Please try another."
+            }
+            var displayRedo = document.getElementById("redoID");
+            displayRedo.innerHTML = redoText;
+            displayRedo.style.color="#FF0000"
+
+            var redo2 = "{{ q2Invalid }}";
+            var redo2Text = "";
+            if(redo2 === "True") {
+                redo2Text = "Not Enough Tweets about that query to perform meaningful analysis. Please try another."
+            }
+            console.log("Redo2: " + redo2 + ", redo2Text: " + redo2Text);
+            var display2Redo = document.getElementById("redo2ID");
+            display2Redo.innerHTML = redo2Text;
+            display2Redo.style.color="#FF0000"
+        </script>
+
+        <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-58718413-1');ga('send','pageview');
+          // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          // ga('create', 'UA-58718413-1', 'auto');
+          // ga('send', 'pageview');
+        </script>
+    </body>
+</html>
