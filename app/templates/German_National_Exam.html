@@ -1,0 +1,1409 @@
+<html><head>
+<!-- BEGIN HEADER SECTION -->
+<link href="/css/quia.css" rel="stylesheet" type="text/css">
+<link href="/static/quia/css/cloze.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/yui2.9.0/container/assets/skins/sam/container.css" type="text/css">
+<link rel="stylesheet" href="/yui2.9.0/button/assets/skins/sam/button.css" type="text/css">
+<link rel="stylesheet" href="/static/quia/util/css/healthCheckAndSubmit.css" type="text/css">
+<link href="/css/web_inst_zone.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+BODY, TABLE, TD, TH { FONT-FAMILY:Verdana, Arial, Helvetica; }
+A:visited { FONT-FAMILY:Verdana, Arial, Helvetica; }
+A B P I { FONT-FAMILY:Verdana, Arial, Helvetica; }
+input, textarea, select { font-size:11px;FONT-FAMILY:Verdana, Arial, Helvetica; }
+ .color-red { background-color: #F5CFD2}
+ .color-green { background-color: #CFE9C7}
+#timer_layer {font:bold 12px Verdana, Arial, Helvetica, sans-serif;color:#339933;}
+#time_left {font:bold 20px Courier New, Courier, mono;color:#339933;}
+#timer_layer .explain {font:normal 9px Verdana, Arial, Helvetica, sans-serif;color:#666;}
+textarea, input, select { font-size:100%; }
+body {-moz-user-select:-moz-none;-khtml-user-select:none;-webkit-user-select:none;user-select:none;}
+</style>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Quia - 2015 Level 03 Listening and Viewing</title>
+<meta name="google" value="notranslate">
+
+<!--[if IE]><script type="text/javascript" src="/script/excanvas.js"></script><![endif]-->
+<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript" src="/yui2.9.0/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="/yui2.9.0/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="/yui2.9.0/element/element-min.js"></script>
+<script type="text/javascript" src="/yui2.9.0/button/button-min.js"></script>
+<script type="text/javascript" src="/yui2.9.0/connection/connection-min.js"></script>
+<script type="text/javascript" src="/yui2.9.0/container/container-min.js"></script>
+<script type="text/javascript" src="/yui2.9.0/utilities/utilities.js"></script>
+<script type="text/javascript" src="/yui2.9.0/json/json.js"></script>
+<script type="text/javascript" src="/static/quia/util/quia_20090514.js"></script>
+<script type="text/javascript" src="/static/quia/util/healthCheckAndSubmit.js"></script>
+<script type="text/javascript" src="/static/quia/activities/quiz/timer.js"></script>
+<script type="text/javascript" src="/static/quia/activities/quiz/disablecp.js"></script>
+<link rel="stylesheet" href="/static/quia/css/noprint.css" type="text/css" media="print"><script type="text/javascript">
+function moveOrderItemUp(orderItemPrefix, inputPrefix, arrowPrefix, orderItemIndex) {
+  var curOrderItem = getItemWithId(orderItemPrefix + orderItemIndex);
+  var aboveOrderItem = getItemWithId(orderItemPrefix + (orderItemIndex - 1));
+  var curInputItem = getFormItemWithName(inputPrefix + orderItemIndex);
+  var aboveInputItem = getFormItemWithName(inputPrefix + (orderItemIndex - 1));
+
+  if (curOrderItem != null && aboveOrderItem != null && 
+      curInputItem != null && aboveInputItem != null) {
+    var curArrowItem = getItemWithId(arrowPrefix + orderItemIndex);
+    var aboveArrowItem = getItemWithId(arrowPrefix + (orderItemIndex - 1));
+    curArrowItem.innerHTML = curArrowItem.innerHTML;
+    aboveArrowItem.innerHTML = aboveArrowItem.innerHTML;
+
+    var curInnerHtml = curOrderItem.innerHTML;
+    curOrderItem.innerHTML = aboveOrderItem.innerHTML;
+    aboveOrderItem.innerHTML = curInnerHtml;
+
+    var curInputValue = curInputItem.value;
+    curInputItem.value = aboveInputItem.value;
+    aboveInputItem.value = curInputValue;
+
+  }
+}
+function moveOrderItemDown(orderItemPrefix, inputPrefix, arrowPrefix, orderItemIndex) {
+  var curOrderItem = getItemWithId(orderItemPrefix + orderItemIndex);
+  var belowOrderItem = getItemWithId(orderItemPrefix + (orderItemIndex + 1));
+  var curInputItem = getFormItemWithName(inputPrefix + orderItemIndex);
+  var belowInputItem = getFormItemWithName(inputPrefix + (orderItemIndex + 1));
+
+  if (curOrderItem != null && belowOrderItem != null && 
+      curInputItem != null && belowInputItem != null) {
+    var curArrowItem = getItemWithId(arrowPrefix + orderItemIndex);
+    var belowArrowItem = getItemWithId(arrowPrefix + (orderItemIndex + 1));
+    curArrowItem.innerHTML = curArrowItem.innerHTML;
+    belowArrowItem.innerHTML = belowArrowItem.innerHTML;
+
+    var curInnerHtml = curOrderItem.innerHTML;
+    curOrderItem.innerHTML = belowOrderItem.innerHTML;
+    belowOrderItem.innerHTML = curInnerHtml;
+
+    var curInputValue = curInputItem.value;
+    curInputItem.value = belowInputItem.value;
+    belowInputItem.value = curInputValue;
+
+  }
+}
+function getItemWithId(itemId) {
+  var item;
+  if (document.getElementById) {
+    item = document.getElementById(itemId);
+  }
+  else {
+    item = document.all(itemId);
+  }
+  return item;
+}
+function getFormItemWithName(formItemName) {
+  var formItem;
+  formItem = document.quiaForm.elements[formItemName];
+  return formItem;
+}
+function deselectOtherRadiosInCol(rowNamePrefix, selectedRowIndex, colIndex) {
+  var selectedRowName = rowNamePrefix + '' + selectedRowIndex;
+  var rowIndex = 0;
+  var rowName = rowNamePrefix + '' + rowIndex;
+  var curRadioRow = document.quiaForm.elements[rowName];
+  while (curRadioRow != null) {
+    if (curRadioRow[colIndex].name != selectedRowName) {
+      curRadioRow[colIndex].checked = false;
+    }
+    rowIndex++;
+    rowName = rowNamePrefix + '' + rowIndex;
+    curRadioRow = document.quiaForm.elements[rowName];
+  }
+}
+tagWhereYFromJava = 'whereY';
+function runOnLoadFunctions(fieldName) {
+var bannerDiv = document.getElementById('branding_banner');
+var timerDiv = document.getElementById('timer_layer');
+if (bannerDiv != null && timerDiv != null) {
+  var minHeight = bannerDiv.offsetHeight + 10;
+  timerDiv.top = minHeight + 'px';
+  setTopBuffer(minHeight);
+}
+}
+
+function runOnSubmitFunctions(curForm) {
+  saveScrollCoordinates(curForm);
+}
+</script>
+<!-- END HEADER SECTION -->
+</head>
+<body bgcolor="#FFFFFF" link="#0000cc" vlink="#0000cc" alink="#0000cc" onload="runOnLoadFunctions('null')" text="#000000" leftmargin="0" rightmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="notranslate"><iframe id="_yuiResizeMonitor" title="Text Resize Monitor" tabindex="-1" role="presentation" style="position: absolute; visibility: visible; border-width: 0px; width: 2em; height: 2em; left: 0px; top: -25px; background-color: transparent;"></iframe>
+<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+<tbody><tr><td align="left" valign="top">
+<div id="quiaBlueTopNav"><a id="quiaBlueTopNavLogo" href="http://www.quia.com/web"></a><a href="http://www.quia.com/studentZone" class="bannerlink" style="margin-left:25px">Home</a>
+<a href="http://www.quia.com/faq.html" class="bannerlink">FAQ</a>
+<a href="http://www.quia.com/findout.html" class="bannerlink">About</a>
+<a href="http://www.quia.com/servlets/quia.user.ProcessLogout?rand=561479210&amp;goto=http%3A%2F%2Fwww.quia.com%2Fweb" class="bannerlink">Log out</a>
+</div><div id="special_msg_div" style="visibility: visible; display: block;"><div id="special_msg_inner">We will be offline for scheduled maintenance from Saturday, January 24 at 11:00 p.m. Pacific Time to Sunday, January 25 at 1:00 a.m. (<span>2015/01/25 07:00</span>–09:00 GMT). Please make sure to save your work and log off before this time. Thanks for your patience while we work to keep our site running smoothly. (<a href="javascript:hideSpecialMessage()">hide message</a>)</div></div>
+<script type="text/javascript">
+messageDivNameFromJava = 'special_msg_div';
+hideSpecialCookieFromJava = 'quia_hide_special_msg_cookie';
+bannerTypeFromJava = '1';
+SpecialTagBannerFromJava = 'tag_message_banner_type';
+getSpecialMessage();
+</script>
+</td></tr>
+<tr>
+<td align="left" valign="top" id="qwbody">
+<div id="quizContent" style="width:620px;"><div id="timer_layer" style="position: absolute; white-space: nowrap; left: 365px; z-index: 50; border: 1px solid rgb(51, 51, 51); padding: 5px; text-align: center; top: 2745px; background-color: rgb(233, 233, 233);">You have &nbsp;<span id="time_left">00:31:19</span>&nbsp; left<div class="explain">Answers will be auto-submitted when time expires.</div></div><form class="fmQuiz" name="quiaForm" method="POST" action="/quiz/5077837.html?AP_rand=750722530" autocomplete="off" spellcheck="false">
+<input type="hidden" name="AP_continuePlay" value="true"><input type="hidden" name="AP_stateKey" value="rt4_d1b6c2740953d03698042936e25e453d_i58nklk1_10ox"><input type="hidden" name="SessionId" value="null">
+<input type="hidden" name="urlId" value="5077837">
+<div style="width:1px;height:60px;"><!-- --></div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr><td class="quia_standard_medium_bold">2015 Level 03 Listening and Viewing</td></tr><tr>
+<td class="quia_standard"><div style="width:1px;height:12px;"><!-- --></div>
+</td></tr></tbody></table>
+<br>
+<br>
+<table id="drawAllQuestionsTbl" cellspacing="0" border="0" cellpadding="0" width="100%">
+<tbody><tr><td class="quia_standard">
+<img src="http://www.quia.com/files/quia/users/nge2014/2015Exam/LogoExam3NGE.jpg" ;="" width="700">
+<br><br><br>
+<font style="font: 20pt sans-serif; font-weight: bold;">Welcome to the Listening and Viewing Section<br>
+<span style="font: 18pt sans-serif; font-style: italic; width: 700px">You will have 40 minutes for this section of the exam. </span></font><br>
+<hr size="12" noshade="" width="700" ;="" align="left" color="black">
+<br>
+<font style="font: 18pt sans-serif; font-weight: bold;">Student Information</font>
+<br><br></td></tr><tr><td class="quia_standard">
+Your first and last name<br><input type="text" name="tq_g_0_guess" size="50" style="font-size:100%;" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"><br><br></td></tr><tr><td class="quia_standard">
+Your date of birth (MM/DD/YYYY)<br><input type="text" name="tq_g_1_guess" size="10" style="font-size:100%;" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"><br><br></td></tr><tr><td class="quia_standard">
+<hr width="700;" align="left">
+<font style="font: 18pt sans-serif; font-weight: bold;">Listening and Viewing<br>
+<font style="font:14pt sans-serif; font-style: italic; width: 700px">In this part of the exam, you will view and listen to several selections. You may view and/or listen to each selection as many times as you would like. Each selection is followed by several questions. For each question, choose the response that is best according to the audio and/or video selection.</font><br>
+<hr width="700;" align="left"><br>
+<font style="font: 14pt sans-serif; font-weight: bold;">Questions 1-7<br><span style="font: 12pt sans-serif; line-height: 1.5em; width: 700px;">Listen to the audio in which Rebekka talks about Frankfurt and answer the questions based on the information presented.</span></font><br>
+<a href="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_Rebekka_Frankfurt.mp3" target="new_window"><span style="font: 12pt sans-serif;line-height:2em"> Internet Explorer users, click here to listen to the audio.</span></a><br>
+<a href="#" onclick="view_file=window.open('/servlets/quia.activities.common.MediaPlayer?listenAudioRaw=http://www.quia.com/files/quia/users/nge2014/2015Exam/3_Rebekka_Frankfurt.mp3&amp;isAudio=true','view_file','width=250,height=130,resizable,screenX=300,screenY=300,left=300,top=300,scrollbars,location=no,alwaysraised');view_file.focus();return false;"><span style="font: 12pt sans-serif; white-space: nowrap; line-height: 2em ;">Chrome, Firefox, and Safari users, click here to listen to the audio.</span></a><br><p></p>
+<img src="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_RebekkainFrankfurt.jpg" width="400"><br>
+<span style="font: 6pt sans-serif; font-style: italic">Audio source: www.audio-lingua.eu</span><br><br></font></td></tr><tr><td class="quia_standard">
+<b>1. Rebekka lebt schon 10 Jahre in Frankfurt. </b><br><table><tbody><tr><td class="quia_standard"><input type="radio" name="tq_g_2_guess" value="0" id="tq_g_2_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Richtig</td>
+</tr>
+<tr><td class="quia_standard"><input type="radio" name="tq_g_2_guess" value="1" id="tq_g_2_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Falsch</td>
+</tr>
+</tbody></table><br><br></td></tr><tr><td class="quia_standard">
+<b>2. Welcher Fluss fließt durch die Stadt?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_3_guess" value="0" id="tq_g_3_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+die Elbe</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_3_guess" value="1" id="tq_g_3_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+der Rhein</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_3_guess" value="2" id="tq_g_3_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+die Mosel</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_3_guess" value="3" id="tq_g_3_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+der Main</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>3. Es gibt wunderschöne Brücken in Frankfurt.</b><br><table><tbody><tr><td class="quia_standard"><input type="radio" name="tq_g_4_guess" value="0" id="tq_g_4_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Richtig</td>
+</tr>
+<tr><td class="quia_standard"><input type="radio" name="tq_g_4_guess" value="1" id="tq_g_4_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Falsch</td>
+</tr>
+</tbody></table><br><br></td></tr><tr><td class="quia_standard">
+<b>4. Welche berühmte Person lebte in Frankfurt?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_5_guess" value="0" id="tq_g_5_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Gauck</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_5_guess" value="1" id="tq_g_5_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Schiller</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_5_guess" value="2" id="tq_g_5_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Goethe</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_5_guess" value="3" id="tq_g_5_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Adenauer</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>5. Welche Sehenswürdigkeit schlägt Rebekka besonders vor?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_6_guess" value="0" id="tq_g_6_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+den Zoo</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_6_guess" value="1" id="tq_g_6_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+die Kirchen</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_6_guess" value="2" id="tq_g_6_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+das Kunstmuseum</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_6_guess" value="3" id="tq_g_6_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+den Hauptbahnhof</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>6. Wie beschreibt sie das Zentrum der Stadt?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_7_guess" value="0" id="tq_g_7_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+ruhig und lebendig</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_7_guess" value="1" id="tq_g_7_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+modern und alt</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_7_guess" value="2" id="tq_g_7_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+praktisch und romantisch</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_7_guess" value="3" id="tq_g_7_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+groß und klein</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>7. Was gibt es in Frankfurt noch zu sehen?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_8_guess" value="0" id="tq_g_8_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+eine Einkaufsstraße</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_8_guess" value="1" id="tq_g_8_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+ein Stadion</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_8_guess" value="2" id="tq_g_8_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+einen Tierpark</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_8_guess" value="3" id="tq_g_8_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+ein Opernhaus</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<hr width="700;" align="left"><br>
+<font style="font: 14pt sans-serif; font-weight: bold;">Questions 8-12<br><span style="font: 12pt sans-serif; line-height: 1.5em; width: 700px">Listen to and view the video about how e-mail causes problems in the office and answer the questions based on the information presented.</span></font><br>
+<a href="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_Zuvieleemails.m4v" target="new_window"><span style="font: 12pt sans-serif;line-height:2em">Internet Explorer users, click here to view the video.</span></a><br>
+<a href="#" onclick="MyWindow=window.open('http://www.quia.com/files/quia/users/nge2014/2015Exam/3_Zuvieleemails.m4v','MyWindow','toolbar=no,location=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no,width=600,height=300'); return false;"><span style="font: 12pt sans-serif; line-height: 2em">Chrome, Firefox, and Safari users, click here to view the video.</span></a><br><p></p>
+<img src="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_ZuvieleEmails.jpg" width="400"><br>
+<span style="font: 6pt sans-serif; font-style: italic">Video source:www.dw.de</span> 
+<br><br></td></tr><tr><td class="quia_standard">
+<b>8. Wie viele E-Mails bekommen die meisten Büroarbeiter pro Tag in Deutschland?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_9_guess" value="0" id="tq_g_9_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+50</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_9_guess" value="1" id="tq_g_9_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+100</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_9_guess" value="2" id="tq_g_9_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+400</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_9_guess" value="3" id="tq_g_9_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+800</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>9. Was ist der Fokus der Firma Atos?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_10_guess" value="0" id="tq_g_10_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Touristik</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_10_guess" value="1" id="tq_g_10_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Informatik</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_10_guess" value="2" id="tq_g_10_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Sportartikel</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_10_guess" value="3" id="tq_g_10_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Lebensmittel</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>10. Was bedeutet der Ausdruck „Ein Berg von elektronischer Post”?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_11_guess" value="0" id="tq_g_11_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Es ist schwierig die E-mails zu sehen.</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_11_guess" value="1" id="tq_g_11_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Es gibt zu viele E-mails zu lesen.</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_11_guess" value="2" id="tq_g_11_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+E-mails kommen von weit weg.</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_11_guess" value="3" id="tq_g_11_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+E-mails sind meistens zu lang.</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>11. Wie viele Stunden pro Woche arbeitet ein normaler Mitarbeiter an E-Mails?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_12_guess" value="0" id="tq_g_12_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+20 Stunden</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_12_guess" value="1" id="tq_g_12_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+100 Stunden</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_12_guess" value="2" id="tq_g_12_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+10 Stunden</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_12_guess" value="3" id="tq_g_12_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+48 Stunden</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>12. Wie arbeiten die Mitarbeiter jetzt effizienter?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_13_guess" value="0" id="tq_g_13_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Sie reduzieren die Länge der E-mails.</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_13_guess" value="1" id="tq_g_13_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Sie reden jetzt öfter persönlich miteinander.</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_13_guess" value="2" id="tq_g_13_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Sie arbeiten zusammen auf einer Projektseite.</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_13_guess" value="3" id="tq_g_13_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Sie telefonieren täglich mit dem Chef.</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<hr width="700;" align="left"><br>
+<font style="font: 14pt sans-serif; font-weight: bold;">Questions 13-19<br><span style="font: 12pt sans-serif; line-height: 1.5em; width: 700px;">Listen to the audio in which Jana talks about her summer job and answer the questions based on the information presented.</span></font><br>
+<a href="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_Jana_Sommer.mp3" target="new_window"><span style="font: 12pt sans-serif;line-height:2em"> Internet Explorer users, click here to listen to the audio.</span></a><br>
+<a href="#" onclick="view_file=window.open('/servlets/quia.activities.common.MediaPlayer?listenAudioRaw=http://www.quia.com/files/quia/users/nge2014/2015Exam/3_Jana_Sommer.mp3&amp;isAudio=true','view_file','width=250,height=130,resizable,screenX=300,screenY=300,left=300,top=300,scrollbars,location=no,alwaysraised');view_file.focus();return false;"><span style="font: 12pt sans-serif; white-space: nowrap; line-height: 2em ;">Chrome, Firefox, and Safari users, click here to listen to the audio.</span></a><br><p></p>
+<img src="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_JanasJob.jpg" width="400"><br>
+<span style="font: 6pt sans-serif; font-style: italic">Audio source: www.audio-lingua.eu</span><br><br></td></tr><tr><td class="quia_standard">
+<b>13. Woher kommt Jana?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_14_guess" value="0" id="tq_g_14_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+aus Koblenz</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_14_guess" value="1" id="tq_g_14_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+aus Krefeld</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_14_guess" value="2" id="tq_g_14_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+aus Kentucky</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_14_guess" value="3" id="tq_g_14_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+aus Köln</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>14. Was war Janas Job im Sommer 2008?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_15_guess" value="0" id="tq_g_15_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Krankenschwester</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_15_guess" value="1" id="tq_g_15_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Betreuerin</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_15_guess" value="2" id="tq_g_15_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Au-pair-Mädchen</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_15_guess" value="3" id="tq_g_15_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Lehrerin</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>15. Wie alt waren die Kinder?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_16_guess" value="0" id="tq_g_16_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+zwischen 10-14</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_16_guess" value="1" id="tq_g_16_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+zwischen 14-17</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_16_guess" value="2" id="tq_g_16_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+zwischen 7-10</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_16_guess" value="3" id="tq_g_16_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+zwischen 5-7</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>16. Welche Aktivität haben die Kinder jeden Tag gemacht?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_17_guess" value="0" id="tq_g_17_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Wandern</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_17_guess" value="1" id="tq_g_17_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Reiten</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_17_guess" value="2" id="tq_g_17_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Fahrrad fahren</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_17_guess" value="3" id="tq_g_17_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Musik spielen</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>17. Was war Janas Lieblingsaktivität?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_18_guess" value="0" id="tq_g_18_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Klettern</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_18_guess" value="1" id="tq_g_18_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Bogenschießen</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_18_guess" value="2" id="tq_g_18_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Bergsteigen</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_18_guess" value="3" id="tq_g_18_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Schwimmen</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>18. Am Ende spielten sie Musik in einem großen Zelt. </b><br><table><tbody><tr><td class="quia_standard"><input type="radio" name="tq_g_19_guess" value="0" id="tq_g_19_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Richtig</td>
+</tr>
+<tr><td class="quia_standard"><input type="radio" name="tq_g_19_guess" value="1" id="tq_g_19_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Falsch</td>
+</tr>
+</tbody></table><br><br></td></tr><tr><td class="quia_standard">
+<b>19. Welcher Titel passt zum Video?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_20_guess" value="0" id="tq_g_20_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Mein Cowboy-Urlaub</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_20_guess" value="1" id="tq_g_20_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Theatercamp in Kentucky</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_20_guess" value="2" id="tq_g_20_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Fußballtraining im Sommer</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_20_guess" value="3" id="tq_g_20_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Sommerarbeit in Nordamerika</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<hr width="700;" align="left"><br>
+<font style="font: 14pt sans-serif; font-weight: bold;">Questions 20-26<br><span style="font: 12pt sans-serif; line-height: 1.5em; width: 700px">Listen to and view the video about an interesting new food trend and answer the questions based on the information presented.</span></font><br>
+<a href="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_Essen_aus_dem_Myyllcontainer.mp4" target="new_window"><span style="font: 12pt sans-serif;line-height:2em">Internet Explorer users, click here to view the video.</span></a><br>
+<a href="#" onclick="MyWindow=window.open('http://www.quia.com/files/quia/users/nge2014/2015Exam/3_Essen_aus_dem_Myyllcontainer.mp4','MyWindow','toolbar=no,location=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no,width=600,height=300'); return false;"><span style="font: 12pt sans-serif; line-height: 2em">Chrome, Firefox, and Safari users, click here to view the video.</span></a><br><p></p>
+<img src="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_EssenausdemContainer.jpg" width="400"><br>
+<span style="font: 6pt sans-serif; font-style: italic">Video source: www.freegan.at</span> <br><br></td></tr><tr><td class="quia_standard">
+<b>20. Wo suchen Laura und Mu Essen?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_21_guess" value="0" id="tq_g_21_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+im Markt</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_21_guess" value="1" id="tq_g_21_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+im Nachtdienst</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_21_guess" value="2" id="tq_g_21_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+im Müll</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_21_guess" value="3" id="tq_g_21_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+im Rucksack</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>21. Welches Essen findet Laura am meisten?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_22_guess" value="0" id="tq_g_22_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Schokolade und Bonbons</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_22_guess" value="1" id="tq_g_22_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Wurst und Fleisch</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_22_guess" value="2" id="tq_g_22_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Obst und Gemüse</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_22_guess" value="3" id="tq_g_22_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Milch und Joghurt</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>22. Was bedeutet das Wort „Freegan"?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_23_guess" value="0" id="tq_g_23_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+eine Diät mit viel Fett</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_23_guess" value="1" id="tq_g_23_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+eine teure Art von Essen</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_23_guess" value="2" id="tq_g_23_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+eine alternative Lebensphilosophie</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_23_guess" value="3" id="tq_g_23_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+eine Diät ohne Gemüse und Obst</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>23. Was bedeutet das Wort „gratis“ im Satz „gratis einkaufen”?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_24_guess" value="0" id="tq_g_24_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+verboten</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_24_guess" value="1" id="tq_g_24_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+frisch</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_24_guess" value="2" id="tq_g_24_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+verrottet</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_24_guess" value="3" id="tq_g_24_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+kostenlos</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>24. Woher kommt das Essen, das in den Müllcontainern landet?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_25_guess" value="0" id="tq_g_25_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Bioläden</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_25_guess" value="1" id="tq_g_25_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Restaurants</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_25_guess" value="2" id="tq_g_25_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Supermärkten</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_25_guess" value="3" id="tq_g_25_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Privathäusern</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>25. Wie viel Prozent vom Essen landet im Container?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_26_guess" value="0" id="tq_g_26_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+fast 25%</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_26_guess" value="1" id="tq_g_26_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+fast 67%</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_26_guess" value="2" id="tq_g_26_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+fast 33%</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_26_guess" value="3" id="tq_g_26_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+fast 50%</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>26. Wie ist der Ton des Moderators am Ende der Reportage?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_27_guess" value="0" id="tq_g_27_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+humorvoll</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_27_guess" value="1" id="tq_g_27_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+kritisch</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_27_guess" value="2" id="tq_g_27_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+euphorisch</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_27_guess" value="3" id="tq_g_27_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+traurig</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<hr width="700;" align="left"><br>
+<font style="font: 14pt sans-serif; font-weight: bold;">Questions 27-33<br><span style="font: 12pt sans-serif; line-height: 1.5em; width: 700px;">Listen to the audio about school in Somalia and answer the questions based on the information presented.</span></font><br>
+<a href="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_Schule_in_Somalia.mp3" target="new_window"><span style="font: 12pt sans-serif;line-height:2em"> Internet Explorer users, click here to listen to the audio.</span></a><br>
+<a href="#" onclick="view_file=window.open('/servlets/quia.activities.common.MediaPlayer?listenAudioRaw=http://www.quia.com/files/quia/users/nge2014/2015Exam/3_Schule_in_Somalia.mp3&amp;isAudio=true','view_file','width=250,height=130,resizable,screenX=300,screenY=300,left=300,top=300,scrollbars,location=no,alwaysraised');view_file.focus();return false;"><span style="font: 12pt sans-serif; white-space: nowrap; line-height: 2em ;">Chrome, Firefox, and Safari users, click here to listen to the audio.</span></a><br><p></p>
+<img src="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_Schule_in_Somalia.jpg" width="400"><br>
+<span style="font: 6pt sans-serif; font-style: italic">Audio source: www.kiraka.de</span><br><br></td></tr><tr><td class="quia_standard">
+<b>27. Was sind Analphabeten?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_28_guess" value="0" id="tq_g_28_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Menschen, die Mathe und Englisch nicht mögen</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_28_guess" value="1" id="tq_g_28_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Menschen, die sehr gern in die Schule gehen</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_28_guess" value="2" id="tq_g_28_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Menschen, die schon mit der Schule fertig sind</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_28_guess" value="3" id="tq_g_28_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Menschen, die nicht lesen oder schreiben können</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>28. Weniger als 50% der somalischen Kinder gehen in die Schule.</b><br><table><tbody><tr><td class="quia_standard"><input type="radio" name="tq_g_29_guess" value="0" id="tq_g_29_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Richtig</td>
+</tr>
+<tr><td class="quia_standard"><input type="radio" name="tq_g_29_guess" value="1" id="tq_g_29_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Falsch</td>
+</tr>
+</tbody></table><br><br></td></tr><tr><td class="quia_standard">
+<b>29. Wofür braucht die somalische Regierung Geld?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_30_guess" value="0" id="tq_g_30_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+für Busse, Autos und Motorräder</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_30_guess" value="1" id="tq_g_30_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+für Bücher, Schulbänke und Lehrer</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_30_guess" value="2" id="tq_g_30_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+für Instrumente für die Schüler</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_30_guess" value="3" id="tq_g_30_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+für Essen für die Schüler</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>30. Welches Problem haben Kinder in Somalia?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_31_guess" value="0" id="tq_g_31_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Sie arbeiten täglich.</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_31_guess" value="1" id="tq_g_31_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Die Eltern haben kein Geld für die Schule.</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_31_guess" value="2" id="tq_g_31_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Sie sind oft krank.</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_31_guess" value="3" id="tq_g_31_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Die Kinder müssen auf die Geschwister aufpassen.</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>31. Das „Go-2-School“ Programm wird 2 Millionen Kindern in Somalia helfen.</b><br><table><tbody><tr><td class="quia_standard"><input type="radio" name="tq_g_32_guess" value="0" id="tq_g_32_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Richtig</td>
+</tr>
+<tr><td class="quia_standard"><input type="radio" name="tq_g_32_guess" value="1" id="tq_g_32_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Falsch</td>
+</tr>
+</tbody></table><br><br></td></tr><tr><td class="quia_standard">
+<b>32. Das „Go-2-School“ Programm kostet den Familien kein Geld.</b><br><table><tbody><tr><td class="quia_standard"><input type="radio" name="tq_g_33_guess" value="0" id="tq_g_33_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Richtig</td>
+</tr>
+<tr><td class="quia_standard"><input type="radio" name="tq_g_33_guess" value="1" id="tq_g_33_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Falsch</td>
+</tr>
+</tbody></table><br><br></td></tr><tr><td class="quia_standard">
+<b>33. Welcher Titel passt am besten zu dieser Reportage?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_34_guess" value="0" id="tq_g_34_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Frühstück für Familien</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_34_guess" value="1" id="tq_g_34_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Arm aber ausgebildet</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_34_guess" value="2" id="tq_g_34_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Schulaustausch Afrika</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_34_guess" value="3" id="tq_g_34_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Zukunft durch Sport</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<hr width="700;" align="left"><br>
+<font style="font: 14pt sans-serif; font-weight: bold;">Questions 34-39<br><span style="font: 12pt sans-serif; line-height: 1.5em; width: 700px">Listen to and view the video about school principal Helga Lerch and answer the questions based on the information presented.</span></font><br>
+<a href="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_HelgaLerchSchulleiterin.mp4" target="new_window"><span style="font: 12pt sans-serif;line-height:2em">Internet Explorer users, click here to view the video.</span></a><br>
+<a href="#" onclick="MyWindow=window.open('http://www.quia.com/files/quia/users/nge2014/2015Exam/3_HelgaLerchSchulleiterin.mp4','MyWindow','toolbar=no,location=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no,width=600,height=300'); return false;"><span style="font: 12pt sans-serif; line-height: 2em">Chrome, Firefox, and Safari users, click here to view the video.</span></a><br><p></p>
+<img src="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_HelgaLerch_Schulleiterin.jpg" width="400"><br>
+<span style="font: 6pt sans-serif; font-style: italic">Video source:www.tivi.de</span> <br><br></td></tr><tr><td class="quia_standard">
+<b>34. Helga Lerch arbeitet schon seit 2 Jahren in einer Schule.</b><br><table><tbody><tr><td class="quia_standard"><input type="radio" name="tq_g_35_guess" value="0" id="tq_g_35_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Richtig</td>
+</tr>
+<tr><td class="quia_standard"><input type="radio" name="tq_g_35_guess" value="1" id="tq_g_35_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Falsch</td>
+</tr>
+</tbody></table><br><br></td></tr><tr><td class="quia_standard">
+<b>35. Warum macht Helga Lerch die Arbeit Spaß?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_36_guess" value="0" id="tq_g_36_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Der Arbeitstag beginnt erst um 10 Uhr.</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_36_guess" value="1" id="tq_g_36_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Der Arbeitstag ist immer anders.</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_36_guess" value="2" id="tq_g_36_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Sie unterrichtet gerne Mathe.</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_36_guess" value="3" id="tq_g_36_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Sie isst gern in der Mensa.</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>36. Mit welcher Aufgabe verbringt Frau Lerch meiste Zeit?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_37_guess" value="0" id="tq_g_37_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Hausaufgaben korrigieren</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_37_guess" value="1" id="tq_g_37_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Büroarbeit machen</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_37_guess" value="2" id="tq_g_37_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Kaffee trinken</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_37_guess" value="3" id="tq_g_37_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Mittagessen kochen</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>37. Wie haben sie die Mensa attraktiv gemacht?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_38_guess" value="0" id="tq_g_38_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+mit vielen Stühlen und Tischen</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_38_guess" value="1" id="tq_g_38_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+mit vielen Fenstern</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_38_guess" value="2" id="tq_g_38_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+mit mehr Essensmöglichkeiten</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_38_guess" value="3" id="tq_g_38_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+mit Pflanzen und Bildern</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>38. Wofür ineressiert sich Frau Lerch?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_39_guess" value="0" id="tq_g_39_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+für die Schüler und die Lehrer</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_39_guess" value="1" id="tq_g_39_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+für die Computer im Klassenzimmer</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_39_guess" value="2" id="tq_g_39_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+für die Planung des Abiballs</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_39_guess" value="3" id="tq_g_39_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+für die neueste Mode der Schüler</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>39. Welche Fächer unterrichtet Frau Lerch?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_40_guess" value="0" id="tq_g_40_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Chemie und Psychologie</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_40_guess" value="1" id="tq_g_40_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Sport und Physik</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_40_guess" value="2" id="tq_g_40_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Englisch und Sozialkunde</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_40_guess" value="3" id="tq_g_40_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Mathe und Erdkunde</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<hr width="700;" align="left"><br>
+<font style="font: 14pt sans-serif; font-weight: bold;">Questions 40-46<br><span style="font: 12pt sans-serif; line-height: 1.5em; width: 700px;">Listen to the audio about German bread and answer the questions based on the information presented.</span></font><br>
+<a href="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_Brot.mp3" target="new_window"><span style="font: 12pt sans-serif;line-height:2em"> Internet Explorer users, click here to listen to the audio.</span></a><br>
+<a href="#" onclick="view_file=window.open('/servlets/quia.activities.common.MediaPlayer?listenAudioRaw=http://www.quia.com/files/quia/users/nge2014/2015Exam/3_Brot.mp3&amp;isAudio=true','view_file','width=250,height=130,resizable,screenX=300,screenY=300,left=300,top=300,scrollbars,location=no,alwaysraised');view_file.focus();return false;"><span style="font: 12pt sans-serif; white-space: nowrap; line-height: 2em ;">Chrome, Firefox, and Safari users, click here to listen to the audio.</span></a><br><p></p>
+<img src="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_DeutschesBrot.jpg" width="400"><br>
+<span style="font: 6pt sans-serif; font-style: italic">Audio source: www.nachrichtenleicht.de</span><br><br></td></tr><tr><td class="quia_standard">
+<b>40. Wie viele Sorten Brot gibt es in Deutschland?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_41_guess" value="0" id="tq_g_41_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+mehr als 1.200</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_41_guess" value="1" id="tq_g_41_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+mehr als 300</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_41_guess" value="2" id="tq_g_41_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+mehr als 3.000</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_41_guess" value="3" id="tq_g_41_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+mehr als 35.000</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>41. In anderen Ländern gibt es auch so viele Brot-Sorten.</b><br><table><tbody><tr><td class="quia_standard"><input type="radio" name="tq_g_42_guess" value="0" id="tq_g_42_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Richtig</td>
+</tr>
+<tr><td class="quia_standard"><input type="radio" name="tq_g_42_guess" value="1" id="tq_g_42_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Falsch</td>
+</tr>
+</tbody></table><br><br></td></tr><tr><td class="quia_standard">
+<b>42. Warum machen die Bäcker Werbung?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_43_guess" value="0" id="tq_g_43_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+um mehr Brot im Supermarkt zu verkaufen</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_43_guess" value="1" id="tq_g_43_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+weil sie mehr Geld brauchen</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_43_guess" value="2" id="tq_g_43_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+weil Deutschland für Brot bekannt sein soll</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_43_guess" value="3" id="tq_g_43_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+um neue Rezepte zu bekommen</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>43. Wer sagt, was auf der Weltkulturerbeliste steht? </b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_44_guess" value="0" id="tq_g_44_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+der Staat</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_44_guess" value="1" id="tq_g_44_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+der TÜV</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_44_guess" value="2" id="tq_g_44_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+die UNO</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_44_guess" value="3" id="tq_g_44_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+die Bäcker</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>44. Was ist eine Weltkulturerbe?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_45_guess" value="0" id="tq_g_45_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+etwas, das im Bioladen verkauft wird</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_45_guess" value="1" id="tq_g_45_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+etwas, das man aus einem anderen Land mitbringt</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_45_guess" value="2" id="tq_g_45_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+etwas, das typisch für eine Kultur ist</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_45_guess" value="3" id="tq_g_45_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+etwas, das man von seinen Großeltern bekommt</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>45. Welches andere Produkt steht schon auf der Weltkulturerbeliste? </b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_46_guess" value="0" id="tq_g_46_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+ein Instrument</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_46_guess" value="1" id="tq_g_46_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+ein Baum</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_46_guess" value="2" id="tq_g_46_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+ein Tanz</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_46_guess" value="3" id="tq_g_46_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+ein Gebäude</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>46. Deutsches Bier steht schon auf der Weltkulturerbeliste.</b><br><table><tbody><tr><td class="quia_standard"><input type="radio" name="tq_g_47_guess" value="0" id="tq_g_47_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Richtig</td>
+</tr>
+<tr><td class="quia_standard"><input type="radio" name="tq_g_47_guess" value="1" id="tq_g_47_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Falsch</td>
+</tr>
+</tbody></table><br><br></td></tr><tr><td class="quia_standard">
+<hr width="700;" align="left"><br>
+<font style="font: 14pt sans-serif; font-weight: bold;">Questions 47-50<br><span style="font: 12pt sans-serif; line-height: 1.5em; width: 700px">Listen to and view the video about how humans communicate with dogs and answer the questions based on the information presented.</span></font><br>
+<a href="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_KommunikationHerrHund.mp4" target="new_window"><span style="font: 12pt sans-serif;line-height:2em">Internet Explorer users, click here to view the video.</span></a><br>
+<a href="#" onclick="MyWindow=window.open('http://www.quia.com/files/quia/users/nge2014/2015Exam/3_KommunikationHerrHund.mp4','MyWindow','toolbar=no,location=no,directories=no,status=no, menubar=no,scrollbars=no,resizable=no,width=600,height=300'); return false;"><span style="font: 12pt sans-serif; line-height: 2em">Chrome, Firefox, and Safari users, click here to view the video.</span></a><br><p></p>
+<img src="http://www.quia.com/files/quia/users/nge2014/2015Exam/3_KommunikationHerrHund.jpg" width="400"><br>
+<span style="font: 6pt sans-serif; font-style: italic">Video source:www.dw.de</span> <br><br></td></tr><tr><td class="quia_standard">
+<b>47. Wie lange hat Sarah schon ihren Hund?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_48_guess" value="0" id="tq_g_48_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+seit drei Tagen</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_48_guess" value="1" id="tq_g_48_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+seit 4 Jahren</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_48_guess" value="2" id="tq_g_48_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+seit 14 Jahren</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_48_guess" value="3" id="tq_g_48_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+seit letztem Sommer</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>48. Was ist das Signal für „Sitz“?</b><br><table cellpadding="2" cellspacing="1" border="0">
+<tbody><tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_49_guess" value="0" id="tq_g_49_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+winken mit der Hand</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_49_guess" value="1" id="tq_g_49_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+Hand nach unten</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_49_guess" value="2" id="tq_g_49_guess_2" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+lautes Rufen</td>
+</tr>
+<tr>
+<td class="quia_standard">
+<input type="radio" name="tq_g_49_guess" value="3" id="tq_g_49_guess_3" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td>
+<td class="quia_standard">
+erhobener Zeigefinger</td>
+</tr>
+</tbody></table>
+<br><br></td></tr><tr><td class="quia_standard">
+<b>49. Der Hund ist das älteste Haustier.</b><br><table><tbody><tr><td class="quia_standard"><input type="radio" name="tq_g_50_guess" value="0" id="tq_g_50_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Richtig</td>
+</tr>
+<tr><td class="quia_standard"><input type="radio" name="tq_g_50_guess" value="1" id="tq_g_50_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Falsch</td>
+</tr>
+</tbody></table><br><br></td></tr><tr><td class="quia_standard">
+<b>50. Wölfe verstehen menschliche Handsignale.</b><br><table><tbody><tr><td class="quia_standard"><input type="radio" name="tq_g_51_guess" value="0" id="tq_g_51_guess_0" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Richtig</td>
+</tr>
+<tr><td class="quia_standard"><input type="radio" name="tq_g_51_guess" value="1" id="tq_g_51_guess_1" onkeypress="if(window.handleEnter){return handleEnter(this, event)}"></td><td class="quia_standard">
+Falsch</td>
+</tr>
+</tbody></table><br><br></td></tr></tbody></table>
+<!-- END QUESTION SECTION -->
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tbody><tr><td align="left" valign="top">
+<input type="submit" name="tag_submit_all_at_once" value="Submit answers" onclick="if(window.disableAllSubmitButtons){return disableAllSubmitButtons(this, event)}" class="quia_web_button"></td></tr>
+</tbody></table>
+<br><br></form>
+</div></td></tr>
+</tbody></table>
+<script type="text/javascript">
+  (function() {
+    var addAnalyticsToPage = function() {
+      var gaq = window['_gaq'] || [];
+      gaq.push(['_setAccount', 'UA-18268683-5']);
+      gaq.push(['_setDomainName', 'quia.com']);
+      gaq.push(['_trackPageview']);
+      
+      window._gaq = gaq;
+      var isSecure = document.location && 'https:' === document.location.protocol;
+      var ga = document.createElement('script'); ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = (isSecure ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    };
+    
+    if (/quia\.com/.test(document.location.href)) {
+      addAnalyticsToPage();
+    }
+  }());
+</script>
+<script type="text/javascript">
+  addLoadEvent(function() {
+    createBeforeUnload("You have not submitted your answers. If you leave this page, the quiz will be abandoned.");
+    addHealthChecks(true,
+                    "Warning",
+                    "Your quiz <b>has not</b> been submitted.<br/>Please check your internet connection and try again.",
+                    "Your quiz <b>has not</b> been submitted.<br/>Please check your internet connection.<br/><br/>The quiz will automatically try to submit again. Do not close your browser window.",
+                    {     'Save for later': "Your quiz <b>has not</b> been saved.<br/>Please check your internet connection and try again.",
+     'Go': "Please check your internet connection and try again.",
+     'Skip for now': "Please check your internet connection and try again.",
+     'Keep working': "Please check your internet connection and try again.",
+     'Submit answer': "Please check your internet connection and try again."
+                    });
+addLoadEvent(function() {QQT.setupQuizTimer(2400000, function() {
+  var form = document.quiaForm;
+  var el = document.createElement('span');
+  el.innerHTML = '<INPUT TYPE="hidden" NAME="tag_auto_submit_quiz" VALUE="true">';
+  form.appendChild(el);
+  form.submit();
+},false);});
+  });
+</script>
+<script type="text/javascript" src="/script/alttxt/alttxt.js"></script>
+
+
+<div id="navtxt" class="yui-module yui-overlay navtext yui-overlay-hidden" style="z-index: 2; visibility: hidden;"></div></body></html>

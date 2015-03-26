@@ -368,11 +368,7 @@ nav a:hover {
 /* ==========================================================================
    Media Queries
    ========================================================================== */
-
-@media only screen and (min-width: 480px) {
-
-
-        
+ 
         /*.first-article{background-color:#966F33}*/
         @media screen and (max-width: 900px) {
                 h1 {
@@ -400,7 +396,7 @@ nav a:hover {
 /* ====================
     INTERMEDIATE: Menu
    ==================== */
-
+@media only screen and (min-width: 480px) {
     nav a {
         float: left;
         width: 27%;
@@ -416,6 +412,7 @@ nav a:hover {
     nav li:last-child a {
         margin-right: 0;
     }
+
 
 /* ========================
     INTERMEDIATE: IE Fixes
