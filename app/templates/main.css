@@ -1,47 +1,5 @@
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 
-           
-            @keyframes "blink" {
-                from,to {
-                color: transparent;
-            }
-             50% {
-                color: black;
-             }
-            }
-            @-moz-keyframes blink {
-                from,to {
-                color: transparent;
-            }
-             50% {
-               color: black;
-             }
-            }
-            @-webkit-keyframes "blink" {
-                from,to {
-                color: transparent;
-            }
-             50% {
-               color: black;
-             }
-            }
-            @-ms-keyframes "blink" {
-                from,to {
-                color: transparent;
-            }
-             50% {
-               color: black;
-             }
-            }
-            @-o-keyframes "blink" {
-                from,to {
-                color: transparent;
-            }
-             50% {
-               color: black;
-             }
-            }
-            
 
 html,
 button,
@@ -226,6 +184,49 @@ nav a:hover {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+   
+           
+            @keyframes "blink" {
+                from,to {
+                color: transparent;
+            }
+             50% {
+                color: black;
+             }
+            }
+            @-moz-keyframes blink {
+                from,to {
+                color: transparent;
+            }
+             50% {
+               color: black;
+             }
+            }
+            @-webkit-keyframes "blink" {
+                from,to {
+                color: transparent;
+            }
+             50% {
+               color: black;
+             }
+            }
+            @-ms-keyframes "blink" {
+                from,to {
+                color: transparent;
+            }
+             50% {
+               color: black;
+             }
+            }
+            @-o-keyframes "blink" {
+                from,to {
+                color: transparent;
+            }
+             50% {
+               color: black;
+             }
+            }
+            
 
 .heading{color:#C58917;}
         .ultimate-wrapper{background-color:#FDD017;}
