@@ -23,31 +23,6 @@
 
         <script src="{{url_for('static', filename='js/vendor/modernizr-2.6.2-respond-1.1.0.min.js')}}"></script>
         <style>
-        .heading{color:#C58917;}
-        .ultimate-wrapper{background-color:#FDD017;}
-        .bluecolor{width: inherit; background-color:#C1CFE8;}
-        .darkblue{background-color:#1C68EB}
-        .blurcolor{color:#588DE8; line-height: 1.5;}
-        .lowertab{border:0; line-height: 1.5;}
-        .upperborder{margin: 15px;
-                      padding: 25px;
-                      color: #C58917;
-                        }
-        .boldlygo{
-            font-weight: bold;
-        } 
-        .centerheading{
-            text-align: center;
-        }               
-        /*.first-article{background-color:#966F33}*/
-        @media screen and (max-width: 900px) {
-                h1 {
-                    line-height: 35px;
-                }
-            .pic {
-            width: 500px; 
-            height:380px;
-        }
             }
         @media screen and (max-width: 600px) {
                 h1 {
@@ -79,25 +54,7 @@
             width: 200px;
             border: 1px solid #CCC;
         }                 
-            }
-
-    .css-typing
-         {
-            width: 30em;
-            white-space:nowrap;
-            overflow:hidden;
-            -webkit-animation: type 5s steps(1, end);
-            animation: type 5s steps(1, end);
-        }
-
-        @keyframes type{
-            from { width: 0; }
-        }
-
-        @-webkit-keyframes type{
-            from { width: 0; }
-        }
-                 
+            }      
         </style>
     </head>
     
@@ -128,8 +85,9 @@
                     <!-- <div class="css-typing">Coke vs Pepsi</div>
                     <div class="css-typing">Love vs Hate</div>
                     <div class="css-typing">Man of Steel vs Dark Knight Rises</div> -->
+                    <p class="coke">Coke vs Pepsi<span id="typed-cursor" class="blinking">|</span></p>
                         <h1 class="heading upperborder">Finally, We Can Make <a style="text-decoration: underline;">Sense</a> of All Those #Hashtags</h1>
-                        <p class="upperborder boldlygo">TweetSense140 is a powerful analyzing tool that reads user tweets and determines the sentiment behind the tweet. Using the Twitter API and Google Charts API our application can graph average user sentiment for a product, celebrity or event over time.</p>
+                        <p class="upperborder boldlygo">TweetSense is a powerful analyzing tool that reads user tweets and determines the sentiment behind the tweet. Using the Twitter API and Google Charts API our application can graph average user sentiment for a product, celebrity or event over time.</p>
                 </header>
             </article>    
         </div>
