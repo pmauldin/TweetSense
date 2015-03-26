@@ -1,32 +1,6 @@
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 
-            #typed-cursor {
-                font-weight: 100;
-                font-size: 30px;
-                color: black;
-            }
-             
-            .slogan {
-                color: #2E3D48;
-                font-size: 30px;
-                position: absolute;
-                top: 50%;
-                text-align: center;
-                margin: -60px 0 0 0;
-                display: block;
-                width: 100%;
-            }
-            #typed-cursor {
-                color: #2E3D48;
-                font-weight: 100;
-            }
-            #typed-cursor.blinking {
-              -webkit-animation: 1s blink step-end infinite;
-                -moz-animation: 1s blink step-end infinite;
-                -ms-animation: 1s blink step-end infinite;
-                -o-animation: 1s blink step-end infinite;
-                animation: 1s blink step-end infinite;
-            }
+           
             @keyframes "blink" {
                 from,to {
                 color: transparent;
@@ -67,121 +41,7 @@
                color: black;
              }
             }
-        .heading{color:#C58917;}
-        .ultimate-wrapper{background-color:#FDD017;}
-        .bluecolor{background-color:#C1CFE8; width:inherit;}
-        .darkblue{background-color:#1C68EB}
-        .blurcolor{color:#588DE8; line-height: 1.5;}
-        .lowertab{border:0; line-height: 1.5;}
-        .upperborder{margin: 15px;
-                      padding: 25px;
-                      color: #C58917;
-                        }
-        .boldlygo{
-            font-weight: bold;
-        }
-        .centerheading{
-            text-align: center;
-        }               
-        /*.first-article{background-color:#966F33}*/
-        @media screen and (max-width: 900px) {
-                h1 {
-                    line-height: 35px;
-                }
-            .pic {
-            width: 500px; 
-            height:380px;
-        }
-        .maintextstyle{margin: 15px;
-                      padding: 25px;
-                      color: #772200;
-                      font-family: "Georgia";
-                        }
-        .spaceless{
-            padding-bottom: 0;
-        }
-        .spacelesstop{
-             padding-top:0;
-        }
-        .no-link{
-            text-decoration: none;
-        }
-        li {
-            list-style-type: none;
-        }
-        div.panel,div.panel1,div.panel2,div.panel3,div.panel4,p.flop,p.flap,p.flep
-        {
-            width:90%;
-            margin:auto;
-            padding:5px;
-            text-align:center;
-            background:#C1CFE8;
-            border:solid 1px #c3c3c3;
-        }
-        .blue,p.flep{
-            /*Hoon*/
-            background:#008080;
-            width:90%;
-            margin:auto;
-            padding:5px;
-            text-align:center;
-            border:solid 1px #c3c3c3;
-        }
-        .red,p.flip{
-            /*Peter*/
-            background:#C35817;
-            width:90%;
-            margin:auto;
-            padding:5px;
-            text-align:center;
-            border:solid 1px #c3c3c3;            
-        }
-        .orange,p.flap{
-            /*Sam*/
-            background:#FF8040;
-            width:90%;
-            margin:auto;
-            padding:5px;
-            text-align:center;
-            border:solid 1px #c3c3c3;
-        }
-        .gold,p.flop{
-            /*William*/
-            background:#FDD017;
-            width:90%;
-            margin:auto;
-            padding:5px;
-            text-align:center;
-            border:solid 1px #c3c3c3;
-        }
-        .blod{
-            font-weight: bold;
-            text-decoration: none;
-        }
-        /*.first-article{background-color:#966F33}*/
-        @media screen and (max-width: 900px) {
-                h1 {
-                    line-height: 35px;
-                }
-            }
-        @media screen and (max-width: 600px) {
-                h1 {
-                    font-size: 25px;
-                }
-            }    
-        @media screen and (max-width: 700px) {
-                title {
-                    padding-left: 35px;
-                }
-            }
-        @media screen and (max-width: 500px) {
-                li,a {
-                    padding: none;
-                    border: none;
-                    margin: none;
-                }
-            } 
-                           
+            
 
 html,
 button,
@@ -367,19 +227,142 @@ nav a:hover {
    Author's custom styles
    ========================================================================== */
 
+.heading{color:#C58917;}
+        .ultimate-wrapper{background-color:#FDD017;}
+        .bluecolor{background-color:#C1CFE8; width:inherit;}
+        .darkblue{background-color:#1C68EB}
+        .blurcolor{color:#588DE8; line-height: 1.5;}
+        .lowertab{border:0; line-height: 1.5;}
+        .upperborder{margin: 15px;
+                      padding: 25px;
+                      color: #C58917;
+                        }
+        .boldlygo{
+            font-weight: bold;
+        }
+        .centerheading{
+            text-align: center;
+        }               
+        /*.first-article{background-color:#966F33}*/
+        @media screen and (max-width: 900px) {
+                h1 {
+                    line-height: 35px;
+                }
+            .pic {
+            width: 500px; 
+            height:380px;
+        }
+        .maintextstyle{margin: 15px;
+                      padding: 25px;
+                      color: #772200;
+                      font-family: "Georgia";
+                        }
+        .spaceless{
+            padding-bottom: 0;
+        }
+        .spacelesstop{
+             padding-top:0;
+        }
+        .no-link{
+            text-decoration: none;
+        }
+        li {
+            list-style-type: none;
+        }
+        div.panel,div.panel1,div.panel2,div.panel3,div.panel4,p.flop,p.flap,p.flep
+        {
+            width:90%;
+            margin:auto;
+            padding:5px;
+            text-align:center;
+            background:#C1CFE8;
+            border:solid 1px #c3c3c3;
+        }
+        .blue,p.flep{
+            /*Hoon*/
+            background:#008080;
+            width:90%;
+            margin:auto;
+            padding:5px;
+            text-align:center;
+            border:solid 1px #c3c3c3;
+        }
+        .red,p.flip{
+            /*Peter*/
+            background:#C35817;
+            width:90%;
+            margin:auto;
+            padding:5px;
+            text-align:center;
+            border:solid 1px #c3c3c3;            
+        }
+        .orange,p.flap{
+            /*Sam*/
+            background:#FF8040;
+            width:90%;
+            margin:auto;
+            padding:5px;
+            text-align:center;
+            border:solid 1px #c3c3c3;
+        }
+        .gold,p.flop{
+            /*William*/
+            background:#FDD017;
+            width:90%;
+            margin:auto;
+            padding:5px;
+            text-align:center;
+            border:solid 1px #c3c3c3;
+        }
+        .blod{
+            font-weight: bold;
+            text-decoration: none;
+        }
 
+ #typed-cursor {
+                font-weight: 100;
+                font-size: 30px;
+                color: black;
+            }
+             
+            .slogan {
+                color: #2E3D48;
+                font-size: 30px;
+                position: absolute;
+                top: 50%;
+                text-align: center;
+                margin: -60px 0 0 0;
+                display: block;
+                width: 100%;
+            }
+            #typed-cursor {
+                color: #2E3D48;
+                font-weight: 100;
+            }
+            #typed-cursor.blinking {
+              -webkit-animation: 1s blink step-end infinite;
+                -moz-animation: 1s blink step-end infinite;
+                -ms-animation: 1s blink step-end infinite;
+                -o-animation: 1s blink step-end infinite;
+                animation: 1s blink step-end infinite;
+            }
+    .css-typing
+         {
+            width: 30em;
+            white-space:nowrap;
+            overflow:hidden;
+            -webkit-animation: type 5s steps(1, end);
+            animation: type 5s steps(1, end);
+        }
 
+        @keyframes type{
+            from { width: 0; }
+        }
 
-
-
-
-
-
-
-
-
-
-
+        @-webkit-keyframes type{
+            from { width: 0; }
+        }
+          
 
 /* ==========================================================================
    Media Queries
@@ -387,6 +370,32 @@ nav a:hover {
 
 @media only screen and (min-width: 480px) {
 
+
+        
+        /*.first-article{background-color:#966F33}*/
+        @media screen and (max-width: 900px) {
+                h1 {
+                    line-height: 35px;
+                }
+            }
+        @media screen and (max-width: 600px) {
+                h1 {
+                    font-size: 25px;
+                }
+            }    
+        @media screen and (max-width: 700px) {
+                title {
+                    padding-left: 35px;
+                }
+            }
+        @media screen and (max-width: 500px) {
+                li,a {
+                    padding: none;
+                    border: none;
+                    margin: none;
+                }
+            } 
+               
 /* ====================
     INTERMEDIATE: Menu
    ==================== */
@@ -602,21 +611,4 @@ nav a:hover {
     }
 }
 
-
-    .css-typing
-         {
-            width: 30em;
-            white-space:nowrap;
-            overflow:hidden;
-            -webkit-animation: type 5s steps(1, end);
-            animation: type 5s steps(1, end);
-        }
-
-        @keyframes type{
-            from { width: 0; }
-        }
-
-        @-webkit-keyframes type{
-            from { width: 0; }
-        }
-           
+ 
