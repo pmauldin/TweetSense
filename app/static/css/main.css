@@ -17,6 +17,9 @@ html {
     background-color:#C1CFE8;
     background:#C1CFE8;
 }
+.bottom-red{
+    border-bottom: 20px solid #e44d26;
+}
 .coke,.love
 {
     width: 30em;
