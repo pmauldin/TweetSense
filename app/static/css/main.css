@@ -13,12 +13,23 @@ html {
     font-size: 1em;
     line-height: 1.4;
 }
+header p {
+    margin-right: 0px;
+    margin-left: 0px;
+    border-left: 10px;
+    border-right: 10px;
+}
+
 .top-head{
     background-color:#C1CFE8;
     background:#C1CFE8;
 }
 .bottom-red{
     border-bottom: 20px solid #e44d26;
+    margin-right: 0px;
+    margin-left: 0px;
+    border-left: 10px;
+    border-right: 10px;
 }
 .coke,.love
 {
