@@ -21,6 +21,17 @@
 
         <link href="{{ url_for('static', filename='css/normalize.min.css') }}" rel="stylesheet">
         <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+            <!-- More Styles -->
+    <link href="http://cleancanvas.herokuapp.com/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://cleancanvas.herokuapp.com/css/compiled/bootstrap-overrides.css" type="text/css" />
+   <!--  <link rel="stylesheet" type="text/css" href="http://cleancanvas.herokuapp.com/css/compiled/theme.css" /> -->
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css' />
+
+    <link rel="stylesheet" href="http://cleancanvas.herokuapp.com/css/compiled/index.css" type="text/css" media="screen" />    
+    <link rel="stylesheet" type="text/css" href="http://cleancanvas.herokuapp.com/css/lib/animate.css" media="screen, projection" /> 
 
         <script src="{{url_for('static', filename='js/vendor/modernizr-2.6.2-respond-1.1.0.min.js')}}"></script>
          <!-- Import Google Line Chart -->
@@ -119,8 +130,6 @@
         </div>
     </div>
 
-
-
         <!-- ______________DISPLAY GRAPHS___________________ -->
     <div class="ultimate-wrapper"> 
       <CENTER>
@@ -130,7 +139,8 @@
                 // var companydata2 = [{{ data2 }}];
               </script>
               <div class="heading upperborder" style="text-align: center"><h1>{{ q }} VS {{ q2 }} as of</h1></div>
-              <script type="text/javascript" src="http://yourjavascript.com/5242421934/date.js"></script>
+              <script type="text/javascript">document.getElementById("para1").innerHTML=formatAMPM();function formatAMPM(){var d=new Date(),minutes=d.getMinutes().toString().length==1?'0'+d.getMinutes():d.getMinutes(),hours=d.getHours().toString().length==1?'0'+d.getHours():d.getHours(),ampm=d.getHours()>=12?'pm':'am',months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],days=['Sun,','Mon,','Tue,','Wed,','Thu,','Fri,','Sat,'];if(hours>12){hours-=12;}
+            return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()+' '+hours+':'+minutes+ampm;}</script>
               <div id="para1"></div>
               <div class="chart" id="output_chart2" style="align: center; width: 900px; height: 500px"></div> 
               {% elif data %}
@@ -167,7 +177,7 @@
 
          <div class="footer-container bluecolor"> 
             <footer class="wrapper">
-                <h3><a href="https://www.facebook.com/tweetsense">Facebook Link</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/pmauldin/Waffles-at-one">GitHub Repo</a></h3>
+                <h3><a href="https://www.facebook.com/tweetsense">Facebook Link</a></h3>
             </footer>
         </div>
 </div>
