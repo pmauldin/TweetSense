@@ -208,7 +208,7 @@
 
 $(function(){
         $(".element").typed({
-        strings: ["Coke vs Pepsi", "Man of Steel vs Dark Knight", "Princeton vs Yale", "Love vs Hate","Finally, we can make sense of all those #hashtags"],
+        strings: ["Coke vs Pepsi", "Man of Steel vs Dark Knight", "Princeton vs Yale", "Love vs Hate","Finally, we can make sense of all those #hashtags","Thanks to Tweetsense"],
         typeSpeed: 0
         });
     });
