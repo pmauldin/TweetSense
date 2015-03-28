@@ -65,6 +65,14 @@
         </script>
 
         <style>
+            @media screen and (max-width: 1505px) {
+                body{
+                    padding-top: 55px;
+                }
+            }
+            p{padding-left:30px}
+            .tweet{width: 510px;
+            list-style-type: none;}
         </style>
     </head>
     <body>
@@ -114,7 +122,7 @@
             <p class="maintextstyle spaceless spacelesstop">
                 Behold! <a class="blod"><i>TweetSense</i></a> instantly reports on how twitter users feel about what they tweet. For example, if someone says:
                 <ul>
-                    <li>
+                    <li class="tweet">
                      <pre>&#9;"Hated the new Man of Steel movie, it sucked #superman."</pre>
                     </li>
                 </ul>
@@ -123,7 +131,7 @@
             This tweet would bring superman's sentiment rating down.
                   However, let's assume a tweet says:
                 <ul class="spaceless">
-                    <li><pre>&#9;"Loved The Dark Knight Rises, it was <a class="blod">Spectactular</a> #batman".</pre>
+                    <li class="tweet"><pre>&#9;"Loved The Dark Knight Rises, it was <a class="blod">Spectactular</a> #batman".</pre>
                     </li>
                 </ul>
             </p>
