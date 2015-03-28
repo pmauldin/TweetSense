@@ -21,6 +21,9 @@
         <link href="{{ url_for('static', filename='css/normalize.min.css') }}" rel="stylesheet">
         <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
         <link href="{{ url_for('static', filename='css/navbars.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/cursor.css') }}" rel="stylesheet">
+
+        <script src="{{ url_for('static', filename='js/typer.js') }}"></script>
 
             <!-- More Styles -->
     <link href="http://cleancanvas.herokuapp.com/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
@@ -34,6 +37,13 @@
 
         <script src="{{url_for('static', filename='js/vendor/modernizr-2.6.2-respond-1.1.0.min.js')}}"></script>
         <style>
+        .bottom-red{
+            border-bottom: 20px solid #e44d26;
+            margin-right: 0px;
+            margin-left: 0px;
+            border-left: 15px;
+            border-right: 15px;
+        }
         @media screen and (max-width: 1505px) {
                 body{
                     padding-top: 55px;
@@ -108,7 +118,7 @@
 
             <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="/" class="bluecolor">HOME</a></li>
+                    <li class=""><a href="/" class="bluecolor">HOME</a></li>
 
                     <li><a href="/about" class="bluecolor">ABOUT US</a></li>
                     <li><a href="/hof" class="bluecolor">Hall of Fame</a></li>
@@ -146,8 +156,8 @@
                     <div class="css-typing">Love vs Hate</div>
                     <div class="css-typing">Man of Steel vs Dark Knight Rises</div> -->
                     <!-- <p class="coke">Coke vs Pepsi<span id="typed-cursor" class="blinking">|</span></p> -->
-                        <h1 class="heading upperborder" style="margin: 0px; padding-bottom:15px">Finally, We Can Make <a style="text-decoration: underline;">Sense</a> of All Those #Hashtags</h1>
-                        <h1 class="coke heading upperborder" style="padding-top: 10px; padding-bottom: 10px;">Coke vs Pepsi</h1>
+                       <!--  <h1 class="heading upperborder" style="margin: 0px; padding-bottom:15px">Finally, We Can Make <a style="text-decoration: underline;">Sense</a> of All Those #Hashtags</h1> -->
+                        <h1 class="heading upperborder" style="padding-top: 10px; padding-bottom: 10px;"><span class="element"></span></h1>
                         <p class="upperborder boldlygo bottom-red">TweetSense is a powerful analyzing tool that reads user tweets and determines the sentiment behind the tweet. Using the Twitter API and Google Charts API our application can graph average user sentiment for a product, celebrity or event over time.</p>
                 </header>
             </article>    
@@ -169,7 +179,7 @@
                <div style="display:none;"><input id="csrf_token" name="csrf_token" type="hidden" value="1421521855##a1af18a55da3a2f50514a97306473557ba90b703"></div>         
                     <!-- <p> -->
                         <!-- Please enter your search query:<br> -->
-                    <h4>Enter term to analyze: (e.g #MHacks) </h4><div id="redoID"></div>
+                    <h4>Enter term to analyze: (e.g Bieber) </h4><div id="redoID"></div>
                     {{ form.query(size=50) }}
                     <p>(Optional) Enter second term to compare against. </p><div id="redo2ID"></div>
                     {{ form.opQuery(size=50)}}
