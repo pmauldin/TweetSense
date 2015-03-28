@@ -21,6 +21,8 @@
 
         <link href="{{ url_for('static', filename='css/normalize.min.css') }}" rel="stylesheet">
         <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/navbars.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/cursor.css') }}" rel="stylesheet">
         <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 
             <!-- More Styles -->
@@ -139,8 +141,17 @@
                 // var companydata2 = [{{ data2 }}];
               </script>
               <div class="heading upperborder" style="text-align: center"><h1>{{ q }} VS {{ q2 }} as of</h1></div>
-              <script type="text/javascript">document.getElementById("para1").innerHTML=formatAMPM();function formatAMPM(){var d=new Date(),minutes=d.getMinutes().toString().length==1?'0'+d.getMinutes():d.getMinutes(),hours=d.getHours().toString().length==1?'0'+d.getHours():d.getHours(),ampm=d.getHours()>=12?'pm':'am',months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],days=['Sun,','Mon,','Tue,','Wed,','Thu,','Fri,','Sat,'];if(hours>12){hours-=12;}
-            return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()+' '+hours+':'+minutes+ampm;}</script>
+              <script type="text/javascript">document.getElementById("para1").innerHTML = formatAMPM();
+                  function formatAMPM() {
+                  var d = new Date(),
+                      minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+                      hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
+                      ampm = d.getHours() >= 12 ? 'pm' : 'am',
+                      months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+                      days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+                      if(hours>12){hours-=12}
+                  return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()+' '+hours+':'+minutes+ampm;
+                  }</script>
               <div id="para1"></div>
               <div class="chart" id="output_chart2" style="align: center; width: 900px; height: 500px"></div> 
               {% elif data %}
