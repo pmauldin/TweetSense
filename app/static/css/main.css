@@ -274,7 +274,7 @@ nav a:hover {
             text-align: center;
         }               
         /*.first-article{background-color:#966F33}*/
-        @media screen and (max-width: 900px) {
+        @media screen and (max-width: 1800px) {
                 h1 {
                     line-height: 35px;
                 }
