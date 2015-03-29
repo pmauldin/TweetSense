@@ -103,7 +103,7 @@
             }                            
         </style>
     </head>
-    <body syle="padding-top: 45px;">
+    <body style="padding-top: 45px;">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -150,8 +150,9 @@
                   months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
                   days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
               return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()+' '+hours+':'+minutes+ampm;
-              }</script>
-              <div class="heading upperborder" style="text-align: center"><h1>{{ q }} VS {{ q2 }} as of</h1></div>
+              }
+              </script>
+              <div class="heading upperborder" style="text-align: center"><h1>{{ q }} VS {{ q2 }}</h1></div>
               <div id="para1"></div>
               <div class="chart" id="output_chart2" style="align: center; width: 900px; height: 500px;"></div> 
               {% elif data %}
